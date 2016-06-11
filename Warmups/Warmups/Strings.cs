@@ -44,7 +44,7 @@ namespace Warmups
         {
             string FirstH = str.Substring(0, str.Length / 2);
 
-            return $"{FirstH}";
+            return FirstH;
 
 
         }
