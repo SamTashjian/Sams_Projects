@@ -47,7 +47,8 @@ namespace DiceRollerCollection
             }
             
             Console.ReadLine();
-            //How can we test this?  The sum of the keys == 69, but the total values won't == 100
+            //How can we test this?  The sum of the keys(without 8) == 69, 
+            //but the total values won't == 100
             //because we removed the key 8.
             // Any ideas?
         }
