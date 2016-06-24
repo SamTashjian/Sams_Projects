@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
-using BattleShip.BLL.GameLogic;
 using BattleShip.BLL.Requests;
 using BattleShip.BLL.Responses;
 using BattleShip.BLL.Ships;
@@ -10,23 +9,21 @@ using BattleShip.BLL.Ships;
 
 namespace BattleShip.UI
 {
-    public class Player
-    {
-        public Player()
-        {
-            Board = new Board();
-        }
-        public string Name { get; set; }
-        public Board Board { get; set; }
-        
-    }
     public class Game
     {
+        //Declaring _coordinates dictionary that it is static.
         private static Dictionary<string, Coordinate> _coordinates;
+        //Creating properties for the Players List.
         public List<Player> Players { get; set; }
 
         public Game()
         {
+            //Creating a new dictionary called _coordinates, that has a strings(ex:A5) for the keys,
+            //and coordinates that are the values for each key. Example: user inputs the string "A5"
+            // they are really targeting/placing at x=1 y=5 aka (1,5).  I'm sure there was a better 
+            //way to do this, but making this dictioanry manually was a good distraction task when
+            //I got stuck.
+
             _coordinates = new Dictionary<string, Coordinate>();
             _coordinates.Add("A1", new Coordinate(1, 1));
             _coordinates.Add("A2", new Coordinate(1, 2));
@@ -128,15 +125,21 @@ namespace BattleShip.UI
             _coordinates.Add("J8", new Coordinate(10, 8));
             _coordinates.Add("J9", new Coordinate(10, 9));
             _coordinates.Add("J10", new Coordinate(10, 10));
+            
+            //Creating new list called Players that will hold each player
             Players = new List<Player>();
         }
 
-
+        //The only method that will actually be ran, other methods will be called within 
+        //the Run() method
         public void Run()
         {
             string userInput;
             do
             {
+                //Creating player 1 and player 2, getting each players name from each user 
+                //and storing it in a variable, adding each player to the Players List, and
+                // displaying a welcome message to both players, including both of their names
                 Player player1 = new Player();
                 Player player2 = new Player();
                 player1.Name = ConsoleIO.PromptString("Player 1, Enter your name");
@@ -145,9 +148,15 @@ namespace BattleShip.UI
                 Players.Add(player2);
                 ConsoleIO.Display($"Welcome to Battleship {player1.Name} and {player2.Name}, Get ready to play Battleship");
 
+                //calling the PlaceShips method(self-explanatory), followed by the Turns method that
+                //takes us through the rest of the game
                 GameWorkFlow.PlaceShips(Players);
                 GameWorkFlow.Turns(Players);
 
+                //The entire game is wrapped in this do/while loop
+                //The game will play and repeat while the variable userInput is not set to "N"
+                //As soon as userInput is set to N by the user at the conclusion of the Turns()
+                //method, we will break out of the loop and exit the console app.
                 userInput = ConsoleIO.PromptString("Would you like to play again? N to exit , any other key to play again").ToUpper();
             } while (userInput != "N");
             
@@ -155,29 +164,46 @@ namespace BattleShip.UI
 
         
 
-
+        //Method used to get each players input on which direction they would like to place
+        //each ship.
         public static ShipDirection GetDirection()
         {
+            //setting all the variables in this method so they won't interfere with the execution
+            //of the rest of the code in this method
             ShipDirection result = ShipDirection.Up;
             int userInput = -1;
             bool isValid = false;
             do
             {
+                //Asking the user what direction they want to place their ship for each ship.
+                //Telling the user to input a number that corresponds to a direction.
+                // Using an if statment to check if the user put in a valid direction(1-4)
+                //and not letting them move on to the next ship untill they have chose a valid 
+                //direction
                 isValid = int.TryParse(ConsoleIO.PromptString("Enter a Direction 1-Up,2-Down,3-Left,4-Right"), out userInput);
                 if (!isValid)
                 {
                     ConsoleIO.Display("You've messed up!");
                 }
             } while (isValid == false);
+            //Had to subtract each player's ship direction by 1 because the user's input is choosing
+            // a direction from the ShipDirection enum, which starts at 0 and goes through 3
+            //rather than the 1-4 that the users are prompted input. 
             result = (ShipDirection) userInput-1;
             return result;
         }
 
+        //Method to access coordinates during ship placement and firing shots
         public static Coordinate GetCoordinate()
         {
             Coordinate result = null;
             do
             {
+                //taking in the user input(ex:"A5") and checking to see if the _coordinates
+                //dictionary contains the user input, and returning the user input if it is a key
+                //in the dictionary.  If it is not, it displays an error message to the user,
+                // and the while loop forces them to put in coordinate, untill they put in a 
+                //valid coordinate
                 string userInput = Console.ReadLine().ToUpper();
                 if (_coordinates.ContainsKey(userInput))
                 {
