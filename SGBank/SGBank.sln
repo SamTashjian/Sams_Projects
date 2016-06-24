@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGBank.UI", "..\akron-dotnet-may-2016-materials\CodeAlongs\SGBank\SGBank.UI\SGBank.UI.csproj", "{E0A32B88-754F-4D09-A6FE-131703E3BE1F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGBank.UI", "SGBank.UI\SGBank.UI.csproj", "{E0A32B88-754F-4D09-A6FE-131703E3BE1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGBank.BLL", "..\akron-dotnet-may-2016-materials\CodeAlongs\SGBank\SGBank.BLL\SGBank.BLL.csproj", "{27B1B469-F0B9-4929-A118-DB7385F54004}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGBank.BLL", "SGBank.BLL\SGBank.BLL.csproj", "{27B1B469-F0B9-4929-A118-DB7385F54004}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGBsnk.Data", "..\akron-dotnet-may-2016-materials\CodeAlongs\SGBank\SGBsnk.Data\SGBsnk.Data.csproj", "{E7E8CE6B-D05D-47C0-8148-3EC048902F0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGBsnk.Data", "SGBsnk.Data\SGBsnk.Data.csproj", "{E7E8CE6B-D05D-47C0-8148-3EC048902F0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGBank.Models", "..\akron-dotnet-may-2016-materials\CodeAlongs\SGBank\SGBank.Models\SGBank.Models.csproj", "{3A691FF0-D4F9-4FD4-91DF-2639501CD6F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGBank.Models", "SGBank.Models\SGBank.Models.csproj", "{3A691FF0-D4F9-4FD4-91DF-2639501CD6F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGBank.Tests", "..\akron-dotnet-may-2016-materials\CodeAlongs\SGBank\SGBank.Tests\SGBank.Tests.csproj", "{39FD8F44-981F-475D-AF31-047C46FEB89E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGBank.Tests", "SGBank.Tests\SGBank.Tests.csproj", "{39FD8F44-981F-475D-AF31-047C46FEB89E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

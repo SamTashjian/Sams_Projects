@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAUI", "..\..\visual studio 2015\Projects\BankingApp\BAUI\BAUI.csproj", "{2C4AEF31-73EB-49A6-A3D2-8BF2361FA56D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BABLL", "..\..\visual studio 2015\Projects\BankingApp\BABLL\BABLL.csproj", "{7C7D5929-F740-48DD-83CD-FA9068A51836}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAData", "..\..\visual studio 2015\Projects\BankingApp\BAData\BAData.csproj", "{04EEB7C3-BF32-4E85-8469-84DE6C30746E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAModels", "..\..\visual studio 2015\Projects\BankingApp\BAModels\BAModels.csproj", "{2D8F4391-4EAF-4A9F-AAA2-B085803D1BE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BATests", "..\..\visual studio 2015\Projects\BankingApp\BATests\BATests.csproj", "{62F1F4C7-6CF0-4AAC-879F-DC803C12C56D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C4AEF31-73EB-49A6-A3D2-8BF2361FA56D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C4AEF31-73EB-49A6-A3D2-8BF2361FA56D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C4AEF31-73EB-49A6-A3D2-8BF2361FA56D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C4AEF31-73EB-49A6-A3D2-8BF2361FA56D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C7D5929-F740-48DD-83CD-FA9068A51836}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C7D5929-F740-48DD-83CD-FA9068A51836}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C7D5929-F740-48DD-83CD-FA9068A51836}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C7D5929-F740-48DD-83CD-FA9068A51836}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04EEB7C3-BF32-4E85-8469-84DE6C30746E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04EEB7C3-BF32-4E85-8469-84DE6C30746E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04EEB7C3-BF32-4E85-8469-84DE6C30746E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04EEB7C3-BF32-4E85-8469-84DE6C30746E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D8F4391-4EAF-4A9F-AAA2-B085803D1BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D8F4391-4EAF-4A9F-AAA2-B085803D1BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D8F4391-4EAF-4A9F-AAA2-B085803D1BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D8F4391-4EAF-4A9F-AAA2-B085803D1BE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62F1F4C7-6CF0-4AAC-879F-DC803C12C56D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62F1F4C7-6CF0-4AAC-879F-DC803C12C56D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62F1F4C7-6CF0-4AAC-879F-DC803C12C56D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62F1F4C7-6CF0-4AAC-879F-DC803C12C56D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
