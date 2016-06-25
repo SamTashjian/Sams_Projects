@@ -24,7 +24,7 @@ namespace BattleShip.UI
             Display(message);
             return Console.ReadLine();
         }
-        //method to set up board which will be used again throughout the program
+        //method to set up board which will be used again throughout the placing of ships.
         public static void DisplaySetUpBoard(Board board)
         {
             Console.Write("   ");
@@ -41,6 +41,8 @@ namespace BattleShip.UI
                 Console.Write("{0} ", i.ToString().PadLeft(2));
                 for (int j = 1; j < 11; j++)
                 {
+                    //Using Linq statement to pull every spot on current player's board, and the if/else statement
+                    //to put * where ships have already been placed, and ~ where ships have not been placed 
                     var results = from s in board.GetShips()
                         where s != null && s.BoardPositions.Any(b => b.XCoordinate == j && b.YCoordinate == i)
                         select s;
@@ -74,7 +76,12 @@ namespace BattleShip.UI
                 for (int j = 1; j < 11; j++)
                 {
                     Coordinate coordinate = new Coordinate(j, i);
+                    
+                    //Actually checking the shot history to see where shots have been fired.
                     bool shotHistory = board.ShotHistory.ContainsKey(coordinate);
+                    
+                    //Filling in the board with "H" where hits have occured, "M" where misses have
+                    //occured, and "~" where there is no shot history.
                     if (shotHistory == true)
                     {
                         switch (board.ShotHistory[coordinate])

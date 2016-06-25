@@ -20,11 +20,13 @@ namespace BattleShip.UI
         {
             //Creating a new dictionary called _coordinates, that has a strings(ex:A5) for the keys,
             //and coordinates that are the values for each key. Example: user inputs the string "A5"
-            // they are really targeting/placing at x=1 y=5 aka (1,5).  I'm sure there was a better 
-            //way to do this, but making this dictioanry manually was a good distraction task when
-            //I got stuck.
+            // they are really targeting/placing at x=1 y=5 aka (1,5).  
 
             _coordinates = new Dictionary<string, Coordinate>();
+
+            //Manually adding all the keys and their values to _coordinates.
+            //I'm sure there was a better way to do this, but making this dictioanry manually 
+            //was a good distraction task when I got stuck.
             _coordinates.Add("A1", new Coordinate(1, 1));
             _coordinates.Add("A2", new Coordinate(1, 2));
             _coordinates.Add("A3", new Coordinate(1, 3));

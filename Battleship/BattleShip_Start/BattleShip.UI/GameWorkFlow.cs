@@ -117,11 +117,17 @@ namespace BattleShip.UI
                     bool isShotValid = false;
                     while (isShotValid == false)
                     {
+                        //Using the GetCoordinate method again to get a coordinate for where the current play
+                        //wants to fire
                         Coordinate shotCoordinate = Game.GetCoordinate();
+                        //Taking in the shot on the enemy player's board
                         var response = enemyPlayer.Board.FireShot(shotCoordinate);
 
                         switch (response.ShotStatus)
                         {
+                            //Pulling from the ShotStatus enum to determine what the result of each shot will be
+                            //isShot Valid is not changed to true on Invalid and Duplicate so they have to stay 
+                            //in the while loop untill a valid shot is shot.
                             case ShotStatus.Invalid:
                                 Console.WriteLine("Invalid Coordinate, please try again");
                                 break;
