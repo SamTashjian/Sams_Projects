@@ -21,9 +21,9 @@ namespace SGFBLL
            // _productRepo = productRepo;
            //_orderRepo = orderRepo;
            //_stateTaxInfoRepo = stateTaxInfoRepo;
-           OrderRepoFactory.CreateOrderRepo();
-           OrderRepoFactory.CreateProductRepo();
-           OrderRepoFactory.CreateStateTaxInfoRepo();
+           var orderRepo = OrderRepoFactory.CreateOrderRepo();
+           var productRepo = OrderRepoFactory.CreateProductRepo();
+           var stateTaxInfo = OrderRepoFactory.CreateStateTaxInfoRepo();
         }
         public Response DisplayOrder(DateTime orderDate)
         {

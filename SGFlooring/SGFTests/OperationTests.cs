@@ -18,7 +18,7 @@ namespace SGFTests
             IProductRepo productRepo = OrderRepoFactory.CreateProductRepo();
             IOrderRepo orderRepo = OrderRepoFactory.CreateOrderRepo();
             IStateTaxInfoRepo stateTaxInfoRepo = OrderRepoFactory.CreateStateTaxInfoRepo();
-            OrderOperation ops = new OrderOperation(productRepo,orderRepo,stateTaxInfoRepo);
+            
 
         }
     }
