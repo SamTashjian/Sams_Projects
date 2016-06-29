@@ -13,12 +13,13 @@ namespace BattleShip.UI
     {
         //Declaring _coordinates dictionary that it is static.
         private static Dictionary<string, Coordinate> _coordinates;
+        
         //Creating properties for the Players List.
         public List<Player> Players { get; set; }
 
         public Game()
         {
-            //Creating a new dictionary called _coordinates, that has a strings(ex:A5) for the keys,
+            //Creating a new dictionary called _coordinates, that has strings(ex:A5) for the keys,
             //and coordinates that are the values for each key. Example: user inputs the string "A5"
             // they are really targeting/placing at x=1 y=5 aka (1,5).  
 
@@ -183,9 +184,11 @@ namespace BattleShip.UI
                 //and not letting them move on to the next ship untill they have chose a valid 
                 //direction
                 isValid = int.TryParse(ConsoleIO.PromptString("Enter a Direction 1-Up,2-Down,3-Left,4-Right"), out userInput);
-                if (!isValid)
+                //If statement does not allow for the user to input outside of 1 through 4 (thanks Brendan).
+                if (!isValid  || userInput <1 || userInput >4)
                 {
                     ConsoleIO.Display("You've messed up!");
+                    isValid = false;
                 }
             } while (isValid == false);
             //Had to subtract each player's ship direction by 1 because the user's input is choosing

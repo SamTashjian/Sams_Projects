@@ -10,10 +10,12 @@ namespace BattleShip.UI
     {
         static void Main(string[] args)
         {
-            //Creating a new Gam called battleship
+            //Creating a new Game called battleship
             Game battleShip = new Game();
-            //Running the Run() method.  The only method I call from the Main method.  All other methods
-            //run within the Run() method.
+
+            //Running the Run() method.  This is the only method I call from the Main method(except the one above).
+            //All other methods run within the Run() method.
+            
             battleShip.Run();
            
           

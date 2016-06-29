@@ -12,7 +12,7 @@ namespace BattleShip.UI
 {
     class GameWorkFlow
     {
-        //PlaceShip method() that is called within the Run(), before taking in each player's name,
+        //PlaceShip method() that is called within the Run(), after taking in each player's name,
         // but before running the Turns() method
         public static void PlaceShips(List<Player> players)
         {
@@ -28,7 +28,7 @@ namespace BattleShip.UI
                         PlaceShipRequest request = new PlaceShipRequest();
 
                         //specifying which ship each user is placing, using the ShipType enum, 0-4
-                        switch (i)
+                        switch(i)
                         {
                             case 0:
                                 request.ShipType = ShipType.Destroyer;
@@ -48,7 +48,8 @@ namespace BattleShip.UI
                         }
 
 
-
+                        //Message to the user telling them to place ship, and what ship they will be placing
+                        //user is forced to place ships in the order of the ShipType enum
                         Console.WriteLine($"{player.Name} Please enter a coordinate to place your " + request.ShipType);
                        
                         //Calling the GetCoordinate() method and the GetDirection() method for each ship placement
@@ -108,7 +109,7 @@ namespace BattleShip.UI
                     ConsoleIO.Display($"{currentPlayer.Name} Please enter the coordinate you would like to fire at");
                     
                     //Displaying where the current player has already shot, so they will not have a dupplicate
-                    //shot, and will make a more informed decision about where their next shot should go.
+                    //shot(hopefully), and will make a more informed decision about where their next shot should go.
                     ConsoleIO.DisplayShotHistory(enemyPlayer.Board);
                     
                     //Setting this isShotValid variable to false and only changing it to true on valid shots
@@ -117,7 +118,7 @@ namespace BattleShip.UI
                     bool isShotValid = false;
                     while (isShotValid == false)
                     {
-                        //Using the GetCoordinate method again to get a coordinate for where the current play
+                        //Using the GetCoordinate method again to get a coordinate for where the current player
                         //wants to fire
                         Coordinate shotCoordinate = Game.GetCoordinate();
                         //Taking in the shot on the enemy player's board
