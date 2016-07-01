@@ -65,7 +65,7 @@ namespace SGFUI.SGFWorkflows
 
             return state;
         }
-
+        
         private string GetProductTypeForOrder()
         {
             string productType = "";
@@ -129,8 +129,6 @@ namespace SGFUI.SGFWorkflows
 
             DisplayOrdersWorkflow displayOrderInfo = new DisplayOrdersWorkflow();
            
-            
-
            
             ConsoleIO prompt = new ConsoleIO();
             string userInput = prompt.PromptUser( "Please press V to validate and submit your order, or any other key to return to the main menu.");

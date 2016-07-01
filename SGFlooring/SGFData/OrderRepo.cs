@@ -20,22 +20,42 @@ namespace SGFData
 
         public List<OrderInfo> GetOrdersByDate(DateTime orderdate)
         {
-            //using (StreamReader sr = new StreamReader("Orders_{0}.txt", orderdate()))
-            //{
-                
-            //}
-            
+            OrderInfoList = ReadTextFile(orderdate.ToString("MMddyyyy"));
 
-            return OrderInfoList.Where(o => o.OrderDate == orderdate).ToList();
+
+            return OrderInfoList;
         }
 
-        //public ReadTextFile(string orderDate)
-        //{
-        //    string dateSearched = orderDate("MMddyyy");
-        //    StreamReader sr = new StreamReader("Orders_{0}.txt", dateSearched);
+        public List<OrderInfo> ReadTextFile(string orderDate)
+        {
+            List<OrderInfo> result = new List <OrderInfo>();
+            string dateSearched = orderDate;
+            using (StreamReader sr = new StreamReader(string.Format("Orders_{0}.txt", dateSearched)))
+            {
+                string[] records = sr.ReadToEnd().Split('\n');
+                for (int i = 0; i < records.Length; i++)
+                {
+                    string record = records[i];
+                    if (record.Length < 1)
+                    {
+                        continue;
+                    }
+                    string[] fields = record.Split(',');
+                    OrderInfo temp = new OrderInfo();
+                    temp.OrderId = Convert.ToInt32(fields[0]);
+                    temp.CustomerName = fields[1];
+                    temp.StateTaxInfo.StateName = fields[2];
+                    temp.StateTaxInfo.TaxRate = Convert.ToDecimal(fields[3]);
+                    temp.ProductInfo.ProductType = fields[4];
+                    temp.Area = Convert.ToDecimal(fields[5]);
+                    temp.ProductInfo.CostPerSquareFoot = Convert.ToDecimal(fields[6]);
+                    temp.ProductInfo.LaborCostPerSquareFoot = Convert.ToDecimal(fields[7]);
 
-        //    return List<OrderInfo>;
-        //}
+                    result.Add(temp);
+                }
+            }
+            return result;
+        }
 
         public OrderInfo CreateOrder(OrderInfo order)
         {

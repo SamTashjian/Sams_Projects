@@ -14,7 +14,7 @@ namespace SGFModels
         public string CustomerName { get; set; }
         public int OrderId { get; set; }
         public decimal Area { get; set; }
-        public decimal Tax { get; set; }
+       public decimal Tax { get; set; }
         public decimal LaborCost
        {
            get { return Area*ProductInfo.LaborCostPerSquareFoot;}

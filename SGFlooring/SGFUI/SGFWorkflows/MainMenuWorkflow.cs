@@ -35,8 +35,6 @@ namespace SGFUI.SGFWorkflows
                 inMenu = ProcessChoice(userInput);
 
             } while (inMenu);
-
-
         }
 
         public bool ProcessChoice(string option)
@@ -51,6 +49,7 @@ namespace SGFUI.SGFWorkflows
                     break;
 
                 case "2":
+                    //wrap in try catch
                     AddOrdersWorkflow addOrders = new AddOrdersWorkflow();
                      addOrders.AddOrder();
                     break;

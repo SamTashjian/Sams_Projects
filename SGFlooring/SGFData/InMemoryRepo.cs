@@ -12,10 +12,12 @@ namespace SGFData
     public class InMemoryRepo: IOrderRepo, IProductRepo, IStateTaxInfoRepo
     {
         private static List<OrderInfo> orderList;
-       
+        private static List<ProductInfo>_productInfo;
+
 
         static InMemoryRepo()
         {
+             _productInfo = new List<ProductInfo>();
             orderList = new List<OrderInfo>
             {
                 new OrderInfo()
@@ -57,10 +59,6 @@ namespace SGFData
            
         }
 
-        
-
-     
-
         public List<OrderInfo> GetOrdersByDate(DateTime orderdate)
         {
 
@@ -91,9 +89,11 @@ namespace SGFData
             throw new NotImplementedException();
         }
 
-        public ProductInfo GetProductByProductType(string productSearched)
-        {
-            throw new NotImplementedException();
+       public ProductInfo GetProductByProductType(string productSearched)
+       {
+            var product = _productInfo.Where(p => p.ProductType == productSearched).FirstOrDefault();
+
+            return product;
         }
 
         public List<StateTaxInfo> GetAllStateTaxInfos()
