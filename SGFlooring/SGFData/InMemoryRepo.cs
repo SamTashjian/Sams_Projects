@@ -12,39 +12,49 @@ namespace SGFData
     public class InMemoryRepo: IOrderRepo, IProductRepo, IStateTaxInfoRepo
     {
         private static List<OrderInfo> orderList;
-        private static List<ProductInfo> productList;
-        private static List<StateTaxInfo> stateTaxList;
+       
 
         static InMemoryRepo()
         {
-            orderList = new List<OrderInfo>()
+            orderList = new List<OrderInfo>
             {
                 new OrderInfo()
                 {
                     Area = 10,
-                    CustomerName = "Sam",
+                    CustomerName = "Scooby",
                     OrderId = 1,
+                    ProductInfo = new ProductInfo() {ProductType = "Wood",CostPerSquareFoot = 10},
+                    StateTaxInfo = new StateTaxInfo() {StateName = "Bay Village"},
                     OrderDate = DateTime.Parse("01/01/2016"),
                     Tax = 5,
-                    MaterialCost = 15,
-                    Total = 2000
                 },
+                
                 new OrderInfo()
                 {
                     Area = 20,
-                    CustomerName = "bobo",
+                    CustomerName = "Bobo",
                     OrderId = 2,
-                    OrderDate = DateTime.Parse("1/02/2016"),
+                    ProductInfo = new ProductInfo() {ProductType = "Marble", CostPerSquareFoot = 25},
+                    StateTaxInfo = new StateTaxInfo() {StateName = "Ohio"},
+                    OrderDate = DateTime.Parse("01/01/2016"),
                     Tax = 4,
-                    MaterialCost = 18,
-                    Total = 3000,
+                 
                   
+                },
+                new OrderInfo()
+                {
+                    Area = 40,
+                    CustomerName = "Scrappy",
+                    OrderId = 3,
+                    ProductInfo = new ProductInfo() {ProductType = "Frozen High Fructose Corn Syrup", CostPerSquareFoot = 0.5m},
+                    StateTaxInfo = new StateTaxInfo() {StateName = "Iraq"},
+                    OrderDate = DateTime.Parse("01/02/2016"),
+                    Tax = 6,
+              
                 }
             };
-            
-            productList = new List<ProductInfo>();
 
-            stateTaxList = new List<StateTaxInfo>();
+           
         }
 
         
@@ -53,16 +63,45 @@ namespace SGFData
 
         public List<OrderInfo> GetOrdersByDate(DateTime orderdate)
         {
+
             return (from order in orderList where orderdate == order.OrderDate select order).ToList();
 
         }
 
+        public OrderInfo CreateOrder(OrderInfo order)
+        {
+            order.OrderId = CreateNextOrderNumber();
+            orderList.Add(order);
+
+            return order;
+        }
+        public int CreateNextOrderNumber()
+        {
+            int orderNumber = 0;
+
+            if (orderList.Count != 0)
+            {
+                orderNumber = orderList.Max(x => x.OrderId) + 1;
+            }
+
+            return orderNumber;
+        }
         public List<ProductInfo> GetAllProducts()
         {
             throw new NotImplementedException();
         }
 
+        public ProductInfo GetProductByProductType(string productSearched)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<StateTaxInfo> GetAllStateTaxInfos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public StateTaxInfo GetStateTaxInfoByStateName(string stateSearched)
         {
             throw new NotImplementedException();
         }

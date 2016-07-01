@@ -11,7 +11,7 @@ namespace SGFUI.SGFWorkflows
         public void DisplayMainMenu()
         {
             string userInput = "";
-
+            bool inMenu = true;
             do
             {
                 Console.Clear();
@@ -32,13 +32,16 @@ namespace SGFUI.SGFWorkflows
 
                 userInput = Console.ReadLine();
 
-                ProcessChoice(userInput);
+                inMenu = ProcessChoice(userInput);
 
-            } while (userInput != "5");
+            } while (inMenu);
+
+
         }
 
-        public void ProcessChoice(string option)
+        public bool ProcessChoice(string option)
         {
+            bool inMenu = true;
             switch (option)
             {
                 case "1":
@@ -49,7 +52,7 @@ namespace SGFUI.SGFWorkflows
 
                 case "2":
                     AddOrdersWorkflow addOrders = new AddOrdersWorkflow();
-                    //addOrders. method to be made
+                     addOrders.AddOrder();
                     break;
 
                 case "3":
@@ -62,12 +65,19 @@ namespace SGFUI.SGFWorkflows
                     //removeOrders. method to be made
                     break;
 
+                case "5":
+                    Console.WriteLine("Goodbye");
+                    Console.ReadLine();
+                    inMenu = false;
+                    break;
+
                 default:
-                    Console.WriteLine("{0}, is not an option, please enter a number between 1 and 5", option);
+                    Console.WriteLine("{0} is not an option, please enter a number between 1 and 5", option);
                     Console.WriteLine("Please hit any key to continue");
                     Console.ReadLine();
                     break;
             }
+            return inMenu;
         }
     }
 }

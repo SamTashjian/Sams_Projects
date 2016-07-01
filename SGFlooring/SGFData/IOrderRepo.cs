@@ -7,5 +7,6 @@ namespace SGFData
     public interface IOrderRepo
     {
         List<OrderInfo> GetOrdersByDate(DateTime orderdate);
+        OrderInfo CreateOrder(OrderInfo order);
     }
 }

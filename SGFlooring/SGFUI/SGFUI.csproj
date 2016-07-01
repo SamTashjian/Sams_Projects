@@ -60,6 +60,10 @@
       <Project>{f230f111-0bc3-4ed2-b9b1-662c3322de4d}</Project>
       <Name>SGFBLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SGFData\SGFData.csproj">
+      <Project>{48e79f1b-1df4-4934-98e4-6bb299477ebc}</Project>
+      <Name>SGFData</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SGFModels\SGFModels.csproj">
       <Project>{af642a1d-23e3-4000-9331-be91b743f1e6}</Project>
       <Name>SGFModels</Name>
@@ -67,8 +71,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="TextFilesRefs\ProductInfo.txt" />
-    <Content Include="TextFilesRefs\StateTaxInfo.txt" />
+    <Content Include="TextFilesRefs\ErrorsLogged.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TextFilesRefs\ProductInfo.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TextFilesRefs\StateTaxInfo.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
