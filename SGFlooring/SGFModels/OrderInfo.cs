@@ -14,8 +14,13 @@ namespace SGFModels
         public string CustomerName { get; set; }
         public int OrderId { get; set; }
         public decimal Area { get; set; }
-       public decimal Tax { get; set; }
-        public decimal LaborCost
+
+        public decimal Tax
+       {
+           get { return (MaterialCost + LaborCost)*(StateTaxInfo.TaxRate/100); }
+       }
+
+       public decimal LaborCost
        {
            get { return Area*ProductInfo.LaborCostPerSquareFoot;}
        }
@@ -25,7 +30,7 @@ namespace SGFModels
        }
        public decimal Total
        {
-            get { return (MaterialCost + LaborCost)  /* * Tax*/;}
+            get { return MaterialCost + LaborCost + Tax;}
        }
 
        public OrderInfo()

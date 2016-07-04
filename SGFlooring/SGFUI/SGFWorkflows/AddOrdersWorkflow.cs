@@ -128,6 +128,7 @@ namespace SGFUI.SGFWorkflows
             };
 
             DisplayOrdersWorkflow displayOrderInfo = new DisplayOrdersWorkflow();
+            displayOrderInfo.PrintOrderInfo(order);
            
            
             ConsoleIO prompt = new ConsoleIO();

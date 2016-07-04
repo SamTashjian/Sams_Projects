@@ -28,7 +28,7 @@ namespace SGFData
                     ProductInfo = new ProductInfo() {ProductType = "Wood",CostPerSquareFoot = 10},
                     StateTaxInfo = new StateTaxInfo() {StateName = "Bay Village"},
                     OrderDate = DateTime.Parse("01/01/2016"),
-                    Tax = 5,
+                    //Tax = 5,
                 },
                 
                 new OrderInfo()
@@ -39,7 +39,7 @@ namespace SGFData
                     ProductInfo = new ProductInfo() {ProductType = "Marble", CostPerSquareFoot = 25},
                     StateTaxInfo = new StateTaxInfo() {StateName = "Ohio"},
                     OrderDate = DateTime.Parse("01/01/2016"),
-                    Tax = 4,
+                    //Tax = 4,
                  
                   
                 },
@@ -51,7 +51,8 @@ namespace SGFData
                     ProductInfo = new ProductInfo() {ProductType = "Frozen High Fructose Corn Syrup", CostPerSquareFoot = 0.5m},
                     StateTaxInfo = new StateTaxInfo() {StateName = "Iraq"},
                     OrderDate = DateTime.Parse("01/02/2016"),
-                    Tax = 6,
+                    //Tax = 6,
+                    
               
                 }
             };

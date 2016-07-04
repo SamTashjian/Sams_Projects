@@ -63,7 +63,7 @@ namespace SGFUI.SGFWorkflows
             Console.WriteLine("*****************");
             Console.WriteLine("                 ");
             Console.WriteLine("Customer Name: {0}", order.CustomerName);
-            Console.WriteLine("Order Date: {0}", order.OrderDate);
+           //Console.WriteLine("Order Date: {0}", order.OrderDate);
             Console.WriteLine("Order ID: {0}", order.OrderId);
             Console.WriteLine("State: {0}", order.StateTaxInfo.StateName);
             Console.WriteLine("Area: {0}", order.Area);

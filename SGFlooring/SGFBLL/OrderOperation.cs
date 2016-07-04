@@ -45,7 +45,7 @@ namespace SGFBLL
 
        public Response CreateNewOrder(OrderInfo order)
        {
-           var repo = OrderRepoFactory.CreateOrderRepo();
+           var repo = OrderRepoFactory.CreateOrderRepo();        
             
            
            var response = new Response();

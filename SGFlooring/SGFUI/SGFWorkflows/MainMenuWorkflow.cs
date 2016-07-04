@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SGFData;
 
 namespace SGFUI.SGFWorkflows
 {
@@ -49,11 +50,19 @@ namespace SGFUI.SGFWorkflows
                     break;
 
                 case "2":
-                    //wrap in try catch
-                    AddOrdersWorkflow addOrders = new AddOrdersWorkflow();
-                     addOrders.AddOrder();
-                    break;
+                    try
+                    {
+                        AddOrdersWorkflow addOrders = new AddOrdersWorkflow();
+                        addOrders.AddOrder();
 
+                    }
+
+                    catch (Exception ex)
+                    {
+                        ErrorLog.LogErrors(ex.Message);
+                        Console.WriteLine("Error Occured");
+                    }
+                    break;
                 case "3":
                     EditOrdersWorkflow editOrders = new EditOrdersWorkflow();
                     //editOrders. method to be made
