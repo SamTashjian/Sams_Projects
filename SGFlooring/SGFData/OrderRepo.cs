@@ -90,7 +90,7 @@ namespace SGFData
         public void WriteToFile(List<OrderInfo> orderInfoList)
         {
             var orderDate = orderInfoList.FirstOrDefault().OrderDate.ToString("MMddyyyy");
-          //  string currentDate = DateTime.Today.ToString("MMddyyyy");
+    
             string fileName = string.Format("Orders_{0}.txt", orderDate);
 
             using (StreamWriter writeOrder = new StreamWriter(fileName))

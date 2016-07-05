@@ -24,22 +24,22 @@ namespace SGFData
             {
                orderList.Add( new OrderInfo()
                 {
-                    Area = 10,
+                    Area = 1000,
                     CustomerName = "Scooby",
                     OrderId = 1,
-                    ProductInfo = new ProductInfo() {ProductType = "Wood"},
-                    StateTaxInfo = new StateTaxInfo() {StateName = "Ohio"},
+                    ProductInfo = new ProductInfo() {ProductType = "Wood", CostPerSquareFoot = 1.9m, LaborCostPerSquareFoot = 1.5m}, 
+                    StateTaxInfo = new StateTaxInfo() {StateName = "Ohio", StateAbb = "OH", TaxRate = 5.8m},
                     OrderDate = DateTime.Parse("01/01/2016"),
                     //Tax = 5,
                 });
 
                 orderList.Add(new OrderInfo()
                 {
-                    Area = 20,
+                    Area = 2000,
                     CustomerName = "Bobo",
                     OrderId = 2,
-                    ProductInfo = new ProductInfo() {ProductType = "Tile"},
-                    StateTaxInfo = new StateTaxInfo() {StateName = "Michigan"},
+                    ProductInfo = new ProductInfo() {ProductType = "Tile", CostPerSquareFoot = 2.3m, LaborCostPerSquareFoot =2.0m },
+                    StateTaxInfo = new StateTaxInfo() {StateName = "Michigan", StateAbb = "MI", TaxRate = 6.1m},
                     OrderDate = DateTime.Parse("01/01/2016"),
                     //Tax = 4,
 
@@ -47,12 +47,11 @@ namespace SGFData
                 });
                 orderList.Add(new OrderInfo()
                 {
-                    Area = 40,
+                    Area = 4000,
                     CustomerName = "Scrappy",
                     OrderId = 3,
-                    ProductInfo =
-                        new ProductInfo() {ProductType = "Carpet"},
-                    StateTaxInfo = new StateTaxInfo() {StateName = "Indiana"},
+                    ProductInfo = new ProductInfo() {ProductType = "Freeze Dried High Fructose Corn Syrup", CostPerSquareFoot = 0.4m, LaborCostPerSquareFoot = 8.1m},
+                    StateTaxInfo = new StateTaxInfo() {StateName = "The Hamptons", StateAbb = "TH", TaxRate = 16.0m},
                     OrderDate = DateTime.Parse("01/02/2016"),
                     //Tax = 6,
 

@@ -44,9 +44,18 @@ namespace SGFUI.SGFWorkflows
             switch (option)
             {
                 case "1":
-                    DisplayOrdersWorkflow displayOrders = new DisplayOrdersWorkflow();
-                    DateTime orderDate = displayOrders.GetOrderDateFromUser();
+                    try
+                    {
+                        DisplayOrdersWorkflow displayOrders = new DisplayOrdersWorkflow();
+                        DateTime orderDate = displayOrders.GetOrderDateFromUser();
                         displayOrders.DisplayOrderInfo(orderDate);
+                    }
+
+                    catch (Exception ex)
+                    {
+                        ErrorLog.LogErrors(ex.Message);
+                        Console.WriteLine("Error Occured");
+                    }
                     break;
 
                 case "2":
@@ -64,13 +73,31 @@ namespace SGFUI.SGFWorkflows
                     }
                     break;
                 case "3":
-                    EditOrdersWorkflow editOrders = new EditOrdersWorkflow();
-                   editOrders.EditOrders();
+                    try
+                    {
+                        EditOrdersWorkflow editOrders = new EditOrdersWorkflow();
+                        editOrders.EditOrders();
+                    }
+
+                    catch (Exception ex)
+                    {
+                        ErrorLog.LogErrors(ex.Message);
+                        Console.WriteLine("Error Occured");
+                    }
                     break;
 
                 case "4":
-                    RemoveOrdersWorkflow removeOrders = new RemoveOrdersWorkflow();
-                    removeOrders.RemoveOrders();
+                    try
+                    {
+                        RemoveOrdersWorkflow removeOrders = new RemoveOrdersWorkflow();
+                        removeOrders.RemoveOrders();
+                    }
+
+                    catch (Exception ex)
+                    {
+                        ErrorLog.LogErrors(ex.Message);
+                        Console.WriteLine("Error Occured");
+                    }
                     break;
 
                 case "5":

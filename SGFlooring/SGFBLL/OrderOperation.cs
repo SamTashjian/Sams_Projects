@@ -11,11 +11,12 @@ namespace SGFBLL
 {
    public class OrderOperation
     {
-       private readonly IProductRepo _productRepo;
-       private IOrderRepo _orderRepo;
-       private readonly IStateTaxInfoRepo _stateTaxInfoRepo;
+        //fairly sure this is not needed
+        private readonly IProductRepo _productRepo;
+        private IOrderRepo _orderRepo;
+        private readonly IStateTaxInfoRepo _stateTaxInfoRepo;
 
-       public OrderOperation()
+        public OrderOperation()
         {
            var orderRepo = OrderRepoFactory.CreateOrderRepo();
            var productRepo = OrderRepoFactory.CreateProductRepo();
