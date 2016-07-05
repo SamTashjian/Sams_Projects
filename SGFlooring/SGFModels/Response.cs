@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SGFModels
 {
-    public class Response
+    public class Response<T>
     {
         public bool Success { get; set; }
         public string Message { get; set; }
-        public List<OrderInfo> OrderDetails { get; set; }
-        public List<ProductInfo> ProductDetails { get; set; }
-        public List<StateTaxInfo> StateTaxDetails { get; set; }
+        //generic so that I can just specify either order info, product info, or state info
+        public List<T> Data { get; set; }
     }
+    
 }

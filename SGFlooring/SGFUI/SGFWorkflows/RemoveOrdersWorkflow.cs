@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using SGFBLL;
+using SGFModels;
 
 namespace SGFUI.SGFWorkflows
 {
@@ -62,7 +65,24 @@ namespace SGFUI.SGFWorkflows
 
         public void ProcessOrderForRemove(DateTime date, int orderId)
         {
+
+            var manager = new OrderOperation();
+            var orders = manager.GetAllOrders(date);
+
+            var orderToRemove = orders.FirstOrDefault(o => o.OrderId == orderId);
+
             
+            ConsoleIO prompt = new ConsoleIO();
+            DisplayOrdersWorkflow dipsplayOrder = new DisplayOrdersWorkflow();
+            dipsplayOrder.DisplaySpecificOrder(orderToRemove);
+            string userInput = prompt.PromptUser("Are you sure you would like to delete this order? Press D to delete, or any other key to return to the main menu");
+            if (userInput.ToUpper() == "D")
+            {
+                orders.Remove(orderToRemove);
+
+                var response = manager.RemoveSpecificOrder(orders);
+                Console.WriteLine(response.Message);
+            }
         }
     }
 }

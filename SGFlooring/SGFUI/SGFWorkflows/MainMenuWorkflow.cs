@@ -65,12 +65,12 @@ namespace SGFUI.SGFWorkflows
                     break;
                 case "3":
                     EditOrdersWorkflow editOrders = new EditOrdersWorkflow();
-                    //editOrders. method to be made
+                   editOrders.EditOrders();
                     break;
 
                 case "4":
                     RemoveOrdersWorkflow removeOrders = new RemoveOrdersWorkflow();
-                    //removeOrders. method to be made
+                    removeOrders.RemoveOrders();
                     break;
 
                 case "5":

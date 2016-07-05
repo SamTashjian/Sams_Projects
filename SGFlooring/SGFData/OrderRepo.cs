@@ -26,8 +26,9 @@ namespace SGFData
             return OrderInfoList;
         }
 
-        public List<OrderInfo> ReadTextFile(string orderDate)
+        private List<OrderInfo> ReadTextFile(string orderDate)
         {
+            var date = new DateTime(int.Parse(orderDate.Substring(4,4)), int.Parse(orderDate.Substring(0, 2)), int.Parse(orderDate.Substring(2, 2)));
             List<OrderInfo> result = new List<OrderInfo>();
             string dateSearched = orderDate;
 
@@ -54,6 +55,7 @@ namespace SGFData
                         temp.Area = Convert.ToDecimal(fields[5]);
                         temp.ProductInfo.CostPerSquareFoot = Convert.ToDecimal(fields[6]);
                         temp.ProductInfo.LaborCostPerSquareFoot = Convert.ToDecimal(fields[7]);
+                        temp.OrderDate = date;
 
                         result.Add(temp);
                     }
@@ -75,14 +77,25 @@ namespace SGFData
             return order;
         }
 
-        private void WriteToFile(List<OrderInfo> orderInfoList)
+        public void RemoveOrder(DateTime orderDate, int orderId)
         {
-            string currentDate = DateTime.Today.ToString("MMddyyyy");
-            string fileName = string.Format("Orders_{0}.txt", currentDate);
+            throw new NotImplementedException();
+        }
+
+        public void RemoveOrder(List<OrderInfo> orders)
+        {
+            WriteToFile(orders);
+        }
+
+        public void WriteToFile(List<OrderInfo> orderInfoList)
+        {
+            var orderDate = orderInfoList.FirstOrDefault().OrderDate.ToString("MMddyyyy");
+          //  string currentDate = DateTime.Today.ToString("MMddyyyy");
+            string fileName = string.Format("Orders_{0}.txt", orderDate);
 
             using (StreamWriter writeOrder = new StreamWriter(fileName))
                 {
-                foreach (var order in OrderInfoList)
+                foreach (var order in orderInfoList)
                 {
                     writeOrder.WriteLine(
                             $"{order.OrderId},{order.CustomerName},{order.StateTaxInfo.StateName},{order.StateTaxInfo.TaxRate},{order.ProductInfo.ProductType},{order.Area},{order.ProductInfo.CostPerSquareFoot}," +
@@ -105,6 +118,16 @@ namespace SGFData
             }
                  
             return orderNumber;
+        }
+
+        public OrderInfo GetOneSpecificOrder(DateTime date, int orderId)
+        {
+          var orders =  GetOrdersByDate(date);
+
+            var order = orders.FirstOrDefault(o => o.OrderId == orderId);
+            
+
+            return order;
         }
     }
 }

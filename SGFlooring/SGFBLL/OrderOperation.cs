@@ -21,11 +21,11 @@ namespace SGFBLL
            var productRepo = OrderRepoFactory.CreateProductRepo();
            var stateTaxInfo = OrderRepoFactory.CreateStateTaxInfoRepo();
         }
-        public Response DisplayOrder(DateTime orderDate)
+        public Response<OrderInfo> DisplayOrder(DateTime orderDate)
         {
             var repo = OrderRepoFactory.CreateOrderRepo();
 
-            var responses = new Response();
+            var responses = new Response<OrderInfo>();
 
             var orders = repo.GetOrdersByDate(orderDate);
 
@@ -37,19 +37,19 @@ namespace SGFBLL
             else
             {
                 responses.Success = true;
-                responses.OrderDetails = orders;
+                responses.Data = orders;
             }
 
             return responses;
         }
 
-       public Response CreateNewOrder(OrderInfo order)
+       public Response<OrderInfo> CreateNewOrder(OrderInfo order)
        {
            var repo = OrderRepoFactory.CreateOrderRepo();        
             
            
-           var response = new Response();
-           response.OrderDetails = new List<OrderInfo>() {repo.CreateOrder(order)};
+           var response = new Response<OrderInfo>();
+           response.Data = new List<OrderInfo>() {repo.CreateOrder(order)};
            response.Success = true;
            return  response;
        }
@@ -78,6 +78,44 @@ namespace SGFBLL
 
         }
 
+        
+
+       public Response<OrderInfo> RemoveSpecificOrder(List<OrderInfo> orders)
+       {
+           var response = new Response<OrderInfo>();
+
+           try
+           {
+               var repo = new OrderRepo();
+
+               repo.RemoveOrder(orders);
+
+               response.Success = true;
+               //response.Message = $"You have successfully removed order {orderId} on {date}";
+               
+           }
+
+           catch (Exception ex)
+           {
+               ErrorLog.LogErrors(ex.Message);
+               response.Success = false;
+               response.Message = ex.Message;
+           }
+
+           return response;
+       }
+
+       public List<OrderInfo> GetAllOrders(DateTime date)
+       {
+           var repo = new OrderRepo();
+           return repo.GetOrdersByDate(date);
+       }
+
+       public void RiteToFile(List<OrderInfo> orders )
+       {
+           var repo = new OrderRepo();
+            repo.WriteToFile(orders);
+       }
         
     }
 }

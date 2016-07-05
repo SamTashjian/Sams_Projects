@@ -67,6 +67,11 @@ namespace SGFData
 
         }
 
+        public OrderInfo GetOneSpecificOrder(DateTime orderdate, int orderId)
+        {
+            throw new NotImplementedException();
+        }
+
         public OrderInfo CreateOrder(OrderInfo order)
         {
             order.OrderId = CreateNextOrderNumber();
@@ -74,6 +79,12 @@ namespace SGFData
 
             return order;
         }
+
+        public void RemoveOrder(DateTime orderDate, int orderId)
+        {
+            throw new NotImplementedException();
+        }
+
         public int CreateNextOrderNumber()
         {
             int orderNumber = 0;

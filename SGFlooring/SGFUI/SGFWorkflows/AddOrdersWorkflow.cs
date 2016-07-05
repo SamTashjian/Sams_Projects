@@ -136,7 +136,7 @@ namespace SGFUI.SGFWorkflows
             if (userInput.ToUpper() == "V")
             {
 
-                Response response = ops.CreateNewOrder(order);
+                Response<OrderInfo> response = ops.CreateNewOrder(order);
                 displayOrderInfo.PrintOrderInfo(order);
                 
 
