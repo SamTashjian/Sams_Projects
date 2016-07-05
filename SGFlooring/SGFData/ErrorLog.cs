@@ -13,9 +13,9 @@ namespace SGFData
         public static string LogErrors(string message)
         {
             
-            using (StreamWriter sw = new StreamWriter("TextFilesRefs\\ErrorsLogged.txt"))
+            using (StreamWriter sw = new StreamWriter("TextFilesRefs\\ErrorsLogged.txt", true))
             {
-                sw.WriteLine(message);
+                sw.WriteLine(message + DateTime.Now);
             }
 
             return message;

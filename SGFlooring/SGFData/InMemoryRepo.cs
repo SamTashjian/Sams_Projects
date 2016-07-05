@@ -11,50 +11,53 @@ namespace SGFData
 {
     public class InMemoryRepo: IOrderRepo, IProductRepo, IStateTaxInfoRepo
     {
-        private static List<OrderInfo> orderList;
+        private static List<OrderInfo> orderList = new List<OrderInfo>();
         private static List<ProductInfo>_productInfo;
+        private static List<StateTaxInfo> _stateTaxInfos;
 
 
         static InMemoryRepo()
         {
              _productInfo = new List<ProductInfo>();
-            orderList = new List<OrderInfo>
+            _stateTaxInfos = new List<StateTaxInfo>();
+
             {
-                new OrderInfo()
+               orderList.Add( new OrderInfo()
                 {
                     Area = 10,
                     CustomerName = "Scooby",
                     OrderId = 1,
-                    ProductInfo = new ProductInfo() {ProductType = "Wood",CostPerSquareFoot = 10},
-                    StateTaxInfo = new StateTaxInfo() {StateName = "Bay Village"},
+                    ProductInfo = new ProductInfo() {ProductType = "Wood"},
+                    StateTaxInfo = new StateTaxInfo() {StateName = "Ohio"},
                     OrderDate = DateTime.Parse("01/01/2016"),
                     //Tax = 5,
-                },
-                
-                new OrderInfo()
+                });
+
+                orderList.Add(new OrderInfo()
                 {
                     Area = 20,
                     CustomerName = "Bobo",
                     OrderId = 2,
-                    ProductInfo = new ProductInfo() {ProductType = "Marble", CostPerSquareFoot = 25},
-                    StateTaxInfo = new StateTaxInfo() {StateName = "Ohio"},
+                    ProductInfo = new ProductInfo() {ProductType = "Tile"},
+                    StateTaxInfo = new StateTaxInfo() {StateName = "Michigan"},
                     OrderDate = DateTime.Parse("01/01/2016"),
                     //Tax = 4,
-                 
-                  
-                },
-                new OrderInfo()
+
+
+                });
+                orderList.Add(new OrderInfo()
                 {
                     Area = 40,
                     CustomerName = "Scrappy",
                     OrderId = 3,
-                    ProductInfo = new ProductInfo() {ProductType = "Frozen High Fructose Corn Syrup", CostPerSquareFoot = 0.5m},
-                    StateTaxInfo = new StateTaxInfo() {StateName = "Iraq"},
+                    ProductInfo =
+                        new ProductInfo() {ProductType = "Carpet"},
+                    StateTaxInfo = new StateTaxInfo() {StateName = "Indiana"},
                     OrderDate = DateTime.Parse("01/02/2016"),
                     //Tax = 6,
-                    
-              
-                }
+
+
+                });
             };
 
            
@@ -69,7 +72,12 @@ namespace SGFData
 
         public OrderInfo GetOneSpecificOrder(DateTime orderdate, int orderId)
         {
-            throw new NotImplementedException();
+            var orders = GetOrdersByDate(orderdate);
+
+            var order = orders.FirstOrDefault(o => o.OrderId == orderId);
+
+
+            return order;
         }
 
         public OrderInfo CreateOrder(OrderInfo order)
@@ -82,7 +90,16 @@ namespace SGFData
 
         public void RemoveOrder(DateTime orderDate, int orderId)
         {
-            throw new NotImplementedException();
+
+            OrderInfo orderToRemove = new OrderInfo(); 
+            foreach (var order in orderList)
+            {
+                if (orderDate == order.OrderDate && orderId == order.OrderId)
+                {
+                    orderToRemove = order;
+                }
+            }
+            orderList.Remove(orderToRemove);
         }
 
         public int CreateNextOrderNumber()
@@ -98,7 +115,7 @@ namespace SGFData
         }
         public List<ProductInfo> GetAllProducts()
         {
-            throw new NotImplementedException();
+            return _productInfo;
         }
 
        public ProductInfo GetProductByProductType(string productSearched)
@@ -110,12 +127,14 @@ namespace SGFData
 
         public List<StateTaxInfo> GetAllStateTaxInfos()
         {
-            throw new NotImplementedException();
+            return _stateTaxInfos;
         }
 
         public StateTaxInfo GetStateTaxInfoByStateName(string stateSearched)
         {
-            throw new NotImplementedException();
+            var state = _stateTaxInfos.Where(s => s.StateName == stateSearched).FirstOrDefault();
+
+            return state;
         }
     }
 
