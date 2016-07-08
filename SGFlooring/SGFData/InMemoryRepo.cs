@@ -11,26 +11,70 @@ namespace SGFData
 {
     public class InMemoryRepo: IOrderRepo, IProductRepo, IStateTaxInfoRepo
     {
-        private static List<OrderInfo> orderList = new List<OrderInfo>();
+        private static List<OrderInfo> orderList;
         private static List<ProductInfo>_productInfo;
         private static List<StateTaxInfo> _stateTaxInfos;
 
+        
 
-        static InMemoryRepo()
+        public  InMemoryRepo()
         {
-             _productInfo = new List<ProductInfo>();
-            _stateTaxInfos = new List<StateTaxInfo>();
-
+            _productInfo = new List<ProductInfo>()
             {
-               orderList.Add( new OrderInfo()
+                new ProductInfo()
+                {
+                    ProductType = "Wood",
+                    CostPerSquareFoot = 5.0m,
+                    LaborCostPerSquareFoot = 3.0m
+                },
+                new ProductInfo()
+                {
+                    ProductType = "Steel",
+                    CostPerSquareFoot = 8.0m,
+                    LaborCostPerSquareFoot = 5.0m
+                },
+                new ProductInfo()
+                {
+                    ProductType = "Plastic",
+                    CostPerSquareFoot = 2.0m,
+                    LaborCostPerSquareFoot = 1.5m
+                }
+            };
+
+            _stateTaxInfos = new List<StateTaxInfo>()
+            {
+                new StateTaxInfo()
+                {
+                    StateName = "Ohio",
+                    StateAbb = "OH",
+                    TaxRate = 5.5m
+                },
+                new StateTaxInfo()
+                {
+                    StateName = "Texas",
+                    StateAbb = "TX",
+                    TaxRate = 3.2m
+                },
+                new StateTaxInfo()
+                {
+                    StateName = "Wisconsin",
+                    StateAbb = "WI",
+                    TaxRate = 4.0m
+                }
+            };
+
+            if (orderList == null)
+            {
+                orderList = new List<OrderInfo>();
+                orderList.Add(new OrderInfo()
                 {
                     Area = 1000,
                     CustomerName = "Scooby",
                     OrderId = 1,
-                    ProductInfo = new ProductInfo() {ProductType = "Wood", CostPerSquareFoot = 1.9m, LaborCostPerSquareFoot = 1.5m}, 
-                    StateTaxInfo = new StateTaxInfo() {StateName = "Ohio", StateAbb = "OH", TaxRate = 5.8m},
+                    ProductInfo = _productInfo.FirstOrDefault( x => x.ProductType == "Wood"),
+                    StateTaxInfo = _stateTaxInfos.FirstOrDefault(x => x.StateName == "Ohio"),
                     OrderDate = DateTime.Parse("01/01/2016"),
-                    //Tax = 5,
+
                 });
 
                 orderList.Add(new OrderInfo()
@@ -38,28 +82,24 @@ namespace SGFData
                     Area = 2000,
                     CustomerName = "Bobo",
                     OrderId = 2,
-                    ProductInfo = new ProductInfo() {ProductType = "Tile", CostPerSquareFoot = 2.3m, LaborCostPerSquareFoot =2.0m },
-                    StateTaxInfo = new StateTaxInfo() {StateName = "Michigan", StateAbb = "MI", TaxRate = 6.1m},
+                    ProductInfo = _productInfo.FirstOrDefault(x => x.ProductType == "Steel"),
+                    StateTaxInfo = _stateTaxInfos.FirstOrDefault(x =>x.StateName == "Wisconsin"),
                     OrderDate = DateTime.Parse("01/01/2016"),
-                    //Tax = 4,
-
 
                 });
                 orderList.Add(new OrderInfo()
                 {
                     Area = 4000,
                     CustomerName = "Scrappy",
-                    OrderId = 3,
-                    ProductInfo = new ProductInfo() {ProductType = "Freeze Dried High Fructose Corn Syrup", CostPerSquareFoot = 0.4m, LaborCostPerSquareFoot = 8.1m},
-                    StateTaxInfo = new StateTaxInfo() {StateName = "The Hamptons", StateAbb = "TH", TaxRate = 16.0m},
+                    OrderId = 1,
+                    ProductInfo = _productInfo.FirstOrDefault(x => x.ProductType == "Plastic"),
+                    StateTaxInfo = _stateTaxInfos.FirstOrDefault(x => x.StateName == "Texas"),
                     OrderDate = DateTime.Parse("01/02/2016"),
-                    //Tax = 6,
-
 
                 });
-            };
+            }
 
-           
+
         }
 
         public List<OrderInfo> GetOrdersByDate(DateTime orderdate)
@@ -81,36 +121,38 @@ namespace SGFData
 
         public OrderInfo CreateOrder(OrderInfo order)
         {
-            order.OrderId = CreateNextOrderNumber();
+            order.OrderId = CreateNextOrderNumber(order.OrderDate);
             orderList.Add(order);
 
             return order;
         }
 
-        public void RemoveOrder(DateTime orderDate, int orderId)
+        public void RemoveOrder(OrderInfo orderInfo )
         {
 
             OrderInfo orderToRemove = new OrderInfo(); 
-            foreach (var order in orderList)
-            {
-                if (orderDate == order.OrderDate && orderId == order.OrderId)
-                {
-                    orderToRemove = order;
-                }
-            }
-            orderList.Remove(orderToRemove);
+          
+            orderList.RemoveAt(orderList.IndexOf(orderInfo));
+
         }
 
-        public int CreateNextOrderNumber()
+        public void EditOrder(OrderInfo orders)
+        {
+            var currentOrders = GetOrdersByDate(orders.OrderDate);
+            int index = currentOrders.FindIndex(x => x.OrderId == orders.OrderId);
+            currentOrders[index] = orders;
+        }
+
+        public int CreateNextOrderNumber(DateTime orderDate)
         {
             int orderNumber = 0;
 
-            if (orderList.Count != 0)
+            if (orderList.Where(x => x.OrderDate == orderDate).Any())
             {
-                orderNumber = orderList.Max(x => x.OrderId) + 1;
+                orderNumber = orderList.Where(x => x.OrderDate == orderDate).Max(x => x.OrderId);
             }
 
-            return orderNumber;
+            return orderNumber+1;
         }
         public List<ProductInfo> GetAllProducts()
         {

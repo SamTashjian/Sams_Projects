@@ -27,7 +27,7 @@ namespace SGFData
             _stateTaxInfos = new List<StateTaxInfo>();
             using (StreamReader sr = new StreamReader("TextFilesRefs\\StateTaxInfo.txt"))
             {
-                string[] records = sr.ReadToEnd().Split('\n');
+                string[] records = sr.ReadToEnd().Split('\n');//remove everything after sr. , replace  with  console.readline
                 for (int i = 1; i < records.Length; i++)
                 {
                     string record = records[i];

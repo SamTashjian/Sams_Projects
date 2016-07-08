@@ -77,14 +77,12 @@ namespace SGFData
             return order;
         }
 
-        public void RemoveOrder(DateTime orderDate, int orderId)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void RemoveOrder(List<OrderInfo> orders)
+        public void RemoveOrder(OrderInfo orders)
         {
-            WriteToFile(orders);
+            var currentOrders = GetOrdersByDate(orders.OrderDate);
+            currentOrders.RemoveAt(currentOrders.FindIndex(x => x.OrderId == orders.OrderId));
+            WriteToFile(currentOrders);
         }
 
         public void WriteToFile(List<OrderInfo> orderInfoList)
@@ -128,6 +126,15 @@ namespace SGFData
             
 
             return order;
+        }
+
+        public void EditOrder(OrderInfo orders)
+        {
+            var currentOrders = GetOrdersByDate(orders.OrderDate);
+            int index = currentOrders.FindIndex(x => x.OrderId == orders.OrderId);
+            currentOrders[index]= orders;
+            WriteToFile(currentOrders);
+
         }
     }
 }

@@ -73,15 +73,14 @@ namespace SGFUI.SGFWorkflows
 
             DisplayOrdersWorkflow displayOrder = new DisplayOrdersWorkflow();
             var order = orders.FirstOrDefault(o => o.OrderId == orderId);
-            orders.Remove(order);
+
             displayOrder.DisplaySpecificOrder(order);
 
            ConsoleIO prompt = new ConsoleIO();
             var stateResponse = prompt.PromptUser("Would you like to edit your state?, press Y to edit or any other key to continue with order edit");
             if (stateResponse.ToUpper() == "Y")
             {
-                order.StateTaxInfo.StateName =
-                    prompt.PromptUser("Please enter your new state.");
+                order.StateTaxInfo=  manager.ShowStateInfo( prompt.PromptUser("Please enter your new state."));
 
             }
 
@@ -95,15 +94,15 @@ namespace SGFUI.SGFWorkflows
                 prompt.PromptUser("Would you like to update your product type?, Please enter Y to edit or any other key to continue to order edit.");
             if (productResponse.ToUpper() == "Y")
             {
-                order.ProductInfo.ProductType = prompt.PromptUser("Please enter your new product type.");
+                order.ProductInfo = manager.ShowProductInfo( prompt.PromptUser("Please enter your new product type."));
             }
 
             displayOrder.DisplaySpecificOrder(order);
           var confrimResponse = prompt.PromptUser("Are your updates correct?, press Y  to submit your edits or any other key to abandon changes and return to main menu");
             if (confrimResponse.ToUpper() == "Y")
             {
-                orders.Add(order);
-                manager.RiteToFile(orders);
+                
+                manager.RiteToFile(order);
             }
         }
         

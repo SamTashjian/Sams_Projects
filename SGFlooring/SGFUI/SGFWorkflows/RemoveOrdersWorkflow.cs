@@ -78,9 +78,9 @@ namespace SGFUI.SGFWorkflows
             string userInput = prompt.PromptUser("Are you sure you would like to delete this order? Press D to delete, or any other key to return to the main menu");
             if (userInput.ToUpper() == "D")
             {
-                orders.Remove(orderToRemove);
+                
 
-                var response = manager.RemoveSpecificOrder(orders);
+                var response = manager.RemoveSpecificOrder(orderToRemove);
                 Console.WriteLine(response.Message);
             }
         }

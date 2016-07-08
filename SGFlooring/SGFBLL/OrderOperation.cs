@@ -13,7 +13,7 @@ namespace SGFBLL
     {
         //fairly sure this is not needed
         private readonly IProductRepo _productRepo;
-        private IOrderRepo _orderRepo;
+        private static IOrderRepo _orderRepo = OrderRepoFactory.CreateOrderRepo();
         private readonly IStateTaxInfoRepo _stateTaxInfoRepo;
 
         public OrderOperation()
@@ -46,11 +46,11 @@ namespace SGFBLL
 
        public Response<OrderInfo> CreateNewOrder(OrderInfo order)
        {
-           var repo = OrderRepoFactory.CreateOrderRepo();        
+                   
             
            
            var response = new Response<OrderInfo>();
-           response.Data = new List<OrderInfo>() {repo.CreateOrder(order)};
+           response.Data = new List<OrderInfo>() {_orderRepo.CreateOrder(order)};
            response.Success = true;
            return  response;
        }
@@ -73,23 +73,23 @@ namespace SGFBLL
 
        public int CreateNewOrderNumber()
        {
-            var nextOrderId = new OrderRepo();
-
-            return nextOrderId.CreateNextOrderNumber();
+            
+           var repo = new OrderRepo();
+            return repo.CreateNextOrderNumber();
 
         }
 
         
 
-       public Response<OrderInfo> RemoveSpecificOrder(List<OrderInfo> orders)
+       public Response<OrderInfo> RemoveSpecificOrder(OrderInfo orders)
        {
            var response = new Response<OrderInfo>();
 
            try
            {
-               var repo = new OrderRepo();
-
-               repo.RemoveOrder(orders);
+               
+               
+               _orderRepo.RemoveOrder(orders);
 
                response.Success = true;
                //response.Message = $"You have successfully removed order {orderId} on {date}";
@@ -108,14 +108,15 @@ namespace SGFBLL
 
        public List<OrderInfo> GetAllOrders(DateTime date)
        {
-           var repo = new OrderRepo();
-           return repo.GetOrdersByDate(date);
+           return _orderRepo.GetOrdersByDate(date);
        }
 
-       public void RiteToFile(List<OrderInfo> orders )
+       public void RiteToFile(OrderInfo orders )
        {
+            
            var repo = new OrderRepo();
-            repo.WriteToFile(orders);
+           repo.EditOrder(orders);
+            
        }
         
     }

@@ -15,7 +15,7 @@ namespace SGFData
             
             using (StreamWriter sw = new StreamWriter("TextFilesRefs\\ErrorsLogged.txt", true))
             {
-                sw.WriteLine(message + DateTime.Now);
+                sw.WriteLine(DateTime.Now +message);
             }
 
             return message;

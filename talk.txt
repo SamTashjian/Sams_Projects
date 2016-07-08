@@ -1,0 +1,5 @@
+Shared layouts are great to use when designing a multi-page website because they reduce the amount of code we have to write by taking the look and feel of one page, and applying that look and feel to all pages on our website.  Shared layouts are implemented in our code by using the @RenderBody() method, which injects a specific view across our pages.
+
+Partial views are chunks of html code that we can reuse.  We can also send data into partial views.  This is beneficial in that if we have a bunch of data that all has the same criteria (id, size, name),  we can create a partial view the criteria(required fields)  and use it for each particular piece of data.
+
+Render section is used when we want to specifically put part of our render body somewhere different than the other pages in the website.
