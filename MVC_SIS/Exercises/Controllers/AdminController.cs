@@ -78,6 +78,68 @@ namespace Exercises.Controllers
             StateRepository.Add(state);
             return RedirectToAction("States");
         }
-       
+        //method to get  the view for editing the specific state chosen by user. 
+        //stateAbb variable used in the 'States.cshtml' file get the state object that will be edited
+        [HttpGet]
+        public ActionResult EditState(string stateAbb)
+        {
+            var state = StateRepository.Get(stateAbb);
+            return View(state);
+        }
+        //method to actually edit the state object in the state repo
+        [HttpPost]
+        public ActionResult EditState(State state)
+        {
+            StateRepository.Edit(state);
+            return RedirectToAction("States");
+        }
+        //method to get to the view for deleting the specific state chosen by user.
+        [HttpGet]
+        public ActionResult DeleteState(string stateAbb)
+        {
+            var state = StateRepository.Get(stateAbb);
+            return View(state);
+        }
+        //method to actually delete the state obect from the state repo
+        [HttpPost]
+        public ActionResult DeleteState(State state)
+        {
+            StateRepository.Delete(state.StateAbbreviation);
+            return RedirectToAction("States");
+        }
+        //Method to return a view of all the courses
+        [HttpGet]
+        public ActionResult Courses()
+        {
+            var model = CourseRepository.GetAll();
+            return View(model.ToList());
+        }
+
+        [HttpGet]
+        public ActionResult AddCourse()
+        {
+            return View(new Course());
+        }
+
+        [HttpPost]
+        public ActionResult AddCourse(Course course)
+        {
+            CourseRepository.Add(course.CourseName);
+            return RedirectToAction("Courses");
+        }
+
+        [HttpGet]
+        public ActionResult EditCourse(int id)
+        {
+            var course = CourseRepository.Get(id);
+            return View(course);
+        }
+
+        [HttpPost]
+        public ActionResult EditCourse(Course course)
+        {
+            CourseRepository.Edit(course);
+            return RedirectToAction("Courses");
+        }
     }
 }

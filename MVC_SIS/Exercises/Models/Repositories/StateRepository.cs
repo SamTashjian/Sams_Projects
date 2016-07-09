@@ -40,7 +40,7 @@ namespace Exercises.Models.Repositories
         {
             var selectedState = _courses.FirstOrDefault(c => c.StateAbbreviation == state.StateAbbreviation);
 
-            selectedState.StateName = state.StateName;
+            selectedState.StateName =  state.StateName;
         }
 
         public static void Delete(string stateAbbreviation)

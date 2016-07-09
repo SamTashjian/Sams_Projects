@@ -27,8 +27,9 @@
                     <tr>
                         <td>@state.StateName</td>
                         <td>
-                            @Html.ActionLink("Editt", "EditState", "Admin", new { id = state.StateName }, null)
-                            @Html.ActionLink("Delete", "DeleteState", "Admin", new { id = state.StateName }, null)
+                            @* 'stateAbb' variable used in the Admin Controller in the HTTPGet EditState method *@
+                            @Html.ActionLink("Edit", "EditState", "Admin", new {stateAbb = state.StateAbbreviation}, null)
+                            @Html.ActionLink("Delete", "DeleteState", "Admin", new {stateAbb = state.StateAbbreviation}, null)
                         </td>
                     </tr>
                 }

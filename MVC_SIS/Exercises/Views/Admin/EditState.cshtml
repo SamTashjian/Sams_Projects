@@ -1,14 +1,14 @@
-﻿@* View created for the add state function *@
+﻿@* View created for the edit state function*@
 @model Exercises.Models.Data.State
 @{
-    ViewBag.Title = "AddState";
+    ViewBag.Title = "EditState";
 }
 
-<h2>Add State</h2>
+
 
 <div class="row">
     <div class="col-xs-12">
-        <h3>Add State</h3>
+        <h3>Edit State</h3>
         @Html.ActionLink("Return to List", "States", "Admin")
     </div>
 </div>
@@ -17,12 +17,12 @@
         @using (Html.BeginForm())
         {
             <div class="form-group">
-                <label>State ABB</label>
-                @Html.TextBoxFor(s => s.StateAbbreviation, new { @class = "form-control", placeholder = "ST" })
+                
+                @Html.HiddenFor(s  => s.StateAbbreviation)
                 <label>State Name</label>
                 @Html.TextBoxFor(s => s.StateName, new { @class = "form-control", placeholder = "State" })
             </div>
-            <button type="submit" class="btn btn-sm btn-primary">Add</button>
+            <button type="submit" class="btn btn-sm btn-primary">Edit</button>
         }
     </div>
 </div>      
