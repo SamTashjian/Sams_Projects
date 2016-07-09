@@ -141,5 +141,19 @@ namespace Exercises.Controllers
             CourseRepository.Edit(course);
             return RedirectToAction("Courses");
         }
+
+        [HttpGet]
+        public ActionResult DeleteCourse(int id)
+        {
+            var course = CourseRepository.Get(id);
+            return View(course);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteCourse(Course course)
+        {
+            CourseRepository.Delete(course.CourseId);
+            return RedirectToAction("Courses");
+        }
     }
 }
