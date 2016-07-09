@@ -58,12 +58,26 @@ namespace Exercises.Controllers
             MajorRepository.Delete(major.MajorId);
             return RedirectToAction("Majors");
         }
-
+        //Method to return a view of all states.  
         [HttpGet]
         public ActionResult States()
         {
             var model = StateRepository.GetAll();
             return View(model.ToList());
         }
+        //Method to get the view of the add state
+        [HttpGet]
+        public ActionResult AddState()
+        {
+            return View(new State());
+        }
+        //method to actually add the state object to the state repo
+        [HttpPost]
+        public ActionResult AddState(State state)
+        {
+            StateRepository.Add(state);
+            return RedirectToAction("States");
+        }
+       
     }
 }

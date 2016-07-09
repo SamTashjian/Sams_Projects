@@ -1,7 +1,38 @@
-﻿@model List<Exercises.Models.Data.State>
+﻿@* declaration that specifies that the "State" model from Data folder within the Models folder will be passed into the States view*@
+@model List<Exercises.Models.Data.State>
 @{
     ViewBag.Title = "States";
 }
 
 <h2>States</h2>
 
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Majors</h3>
+        @Html.ActionLink("Add State", "AddState", "Admin", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-striped" style="width: auto;">
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var state in Model)
+                {
+                    <tr>
+                        <td>@state.StateName</td>
+                        <td>
+                            @Html.ActionLink("Editt", "EditState", "Admin", new { id = state.StateName }, null)
+                            @Html.ActionLink("Delete", "DeleteState", "Admin", new { id = state.StateName }, null)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
