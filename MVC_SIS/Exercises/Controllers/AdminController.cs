@@ -65,13 +65,13 @@ namespace Exercises.Controllers
             var model = StateRepository.GetAll();
             return View(model.ToList());
         }
-        //Method to get the view of the add state
+        //Method to get the view of the add state screen
         [HttpGet]
         public ActionResult AddState()
         {
             return View(new State());
         }
-        //method to actually add the state object to the state repo
+        //method to actually add the state object to the in memory state repo
         [HttpPost]
         public ActionResult AddState(State state)
         {
@@ -114,41 +114,41 @@ namespace Exercises.Controllers
             var model = CourseRepository.GetAll();
             return View(model.ToList());
         }
-
+        //Method to return a view of the add course screen
         [HttpGet]
         public ActionResult AddCourse()
         {
             return View(new Course());
         }
-
+        //Method to actually add a new Course object to the in memory course repo
         [HttpPost]
         public ActionResult AddCourse(Course course)
         {
             CourseRepository.Add(course.CourseName);
             return RedirectToAction("Courses");
         }
-
+        //Method to return a view of of the edit course screen
         [HttpGet]
-        public ActionResult EditCourse(int id)
+        public ActionResult EditCourse(int courseId)
         {
-            var course = CourseRepository.Get(id);
+            var course = CourseRepository.Get(courseId);
             return View(course);
         }
-
+        //Method to actually edit the Course object in the in memory course repo 
         [HttpPost]
         public ActionResult EditCourse(Course course)
         {
             CourseRepository.Edit(course);
             return RedirectToAction("Courses");
         }
-
+        //Method to return a view of the delete course screen
         [HttpGet]
-        public ActionResult DeleteCourse(int id)
+        public ActionResult DeleteCourse(int courseId)
         {
-            var course = CourseRepository.Get(id);
+            var course = CourseRepository.Get(courseId);
             return View(course);
         }
-
+        //method to actually delete the Course object from the in memory course repo
         [HttpPost]
         public ActionResult DeleteCourse(Course course)
         {

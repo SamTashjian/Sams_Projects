@@ -7,7 +7,7 @@
 
 <div class="row">
     <div class="col-xs-12">
-        <h3>Majors</h3>
+       
         @Html.ActionLink("Add Course", "AddCourse", "Admin", null, new { @class = "btn btn-primary" })
     </div>
 </div>
@@ -26,7 +26,7 @@
                     <tr>
                         <td>@course.CourseName</td>
                         <td>
-                            
+                            @* variable 'courseId' used in the controller for the HTTP Gets for EditState() and DeleteState()*@
                             @Html.ActionLink("Edit", "EditCourse", "Admin", new { courseId = course.CourseId }, null)
                             @Html.ActionLink("Delete", "DeleteCourse", "Admin", new { courseId = course.CourseId }, null)
                         </td>

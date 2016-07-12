@@ -83,15 +83,15 @@ namespace Exercises.Models.Repositories
             _students.Add(state);
         }
 
-        public static void Edit(Student student)
+        public static void Edit(Student model)
         {
-            var selectedStudent = _students.First(s => s.StudentId == student.StudentId);
+            var selectedStudent = _students.First(s => s.StudentId == model.StudentId);
 
-            selectedStudent.FirstName = student.FirstName;
-            selectedStudent.LastName = student.LastName;
-            selectedStudent.GPA = student.GPA;
-            selectedStudent.Major = student.Major;
-            selectedStudent.Courses = student.Courses;
+            selectedStudent.FirstName = model.FirstName;
+            selectedStudent.LastName = model.LastName;
+            selectedStudent.GPA = model.GPA;
+            selectedStudent.Major = model.Major;
+            selectedStudent.Courses = model.Courses;
         }
 
         public static void Delete(int studentId)
