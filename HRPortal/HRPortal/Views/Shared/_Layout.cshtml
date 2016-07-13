@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
@@ -17,21 +17,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Student Information System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Real Akron F.C. Human Resources", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        @Html.ActionLink("Students", "List", "Student")
+                        @Html.ActionLink("Open Positions", "Jobs", "Admin")
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Policies<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Majors", "Majors", "Admin")</li>
-                            @* Created Link in the main menu dropdown that will load the state list page *@
-                            <li>@Html.ActionLink("States", "States", "Admin")</li>
-                            @* Created Link in the main menu dropdown that will load the state list page *@
-                            <li>@Html.ActionLink("Courses", "Courses", "Admin")</li>
+                            <li>@Html.ActionLink("View Policies", "ViewPol", "Admin")</li>
+                            
+                            <li>@Html.ActionLink("Manage Policies", "ManagePol", "Admin")</li>
+                           
+                            <li>@Html.ActionLink("Manage Categories", "ManageCat", "Admin")</li>
                         </ul>
                     </li>
                 </ul>
@@ -43,10 +43,11 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - The Software Guild</p>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>

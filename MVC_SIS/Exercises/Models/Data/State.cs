@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Web;
 
 namespace Exercises.Models.Data
@@ -10,4 +11,5 @@ namespace Exercises.Models.Data
         public string StateAbbreviation { get; set; }
         public string StateName { get; set; }
     }
+
 }

@@ -1,0 +1,41 @@
+﻿@model List<HRPortal.Models.Data.Job>
+@{
+    ViewBag.Title = "Jobs";
+}
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Jobs</h3>
+        @Html.ActionLink("Add Job", "AddJob", "Admin", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-striped" style="width: auto;">
+            <thead>
+                <tr>
+                    <th>Job</th>
+                    <th>Job Title</th>
+                    <th>Department</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var job in Model)
+                {
+                    <tr>
+                        <td>@job.JobId</td>
+                        <td>@job.JobTitle</td>
+                        <td>@job.Department</td>
+                        <td>@job.Salary</td>
+                        <td>
+                            @Html.ActionLink("Apply", "ApplyForJob", "Admin", new {id = job.JobId}, null)|
+                            @Html.ActionLink("View Apllications", "ViewApps", "Admin", new {id = job.JobId}, null)|
+                            @Html.ActionLink("Edit Job", "EditJob", "Admin", new {id = job.JobId}, null) |
+                            @Html.ActionLink("Remove Job", "RemoveJob", "Admin", new {id = job.JobId}, null)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -13,5 +13,14 @@ namespace Exercises.Models.Data
         public string City { get; set; }
         public State State { get; set; }
         public string PostalCode { get; set; }
+
+        public Address()
+        {
+            this.State = new State();
+           
+        }
+
     }
+
+
 }

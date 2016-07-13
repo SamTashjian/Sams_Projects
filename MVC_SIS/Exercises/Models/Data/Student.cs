@@ -14,5 +14,12 @@ namespace Exercises.Models.Data
         public Address Address { get; set; }
         public Major Major { get; set; }
         public List<Course> Courses { get; set; }
+
+        public Student()
+        {
+            this.Address = new Address();
+            this.Major = new Major();
+            this.Courses = new List<Course>();
+        }
     }
 }

@@ -11,7 +11,7 @@
     <div class="col-xs-12 col-sm-9">
         <div class="row">
             <div class="col-xs-12">
-                <h4>Student List</h4>
+                <h4>Student Portal</h4>
                 <p>@Html.ActionLink("Add a Student", "Add", "Student", null, new { @class = "btn btn-primary" })</p>
                 <table class="table table-bordered table-striped">
                     <thead>
@@ -20,6 +20,13 @@
                             <th>Last Name</th>
                             <th>Major</th>
                             <th>GPA</th>
+                            <th></th>
+                            <th>State</th>
+                            <th>City</th>
+                            <th>Street</th>
+                            <th>Postal Code</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,6 +37,12 @@
                                 <td>@student.LastName</td>
                                 <td>@student.Major.MajorName</td>
                                 <td>@student.GPA</td>
+                                <td></td>
+
+                                <td>@student.Address.State.StateName</td>
+                                <td>@student.Address.City</td>
+                                <td>@student.Address.Street1</td>
+                                <td>@student.Address.PostalCode</td>
                             
                                 <td>@Html.ActionLink("Edit", "Edit", "Student", new {studentId = student.StudentId}, null)</td>
                                 <td>@Html.ActionLink("Delete", "Delete", "Student", new {studentId = student.StudentId}, null)</td>

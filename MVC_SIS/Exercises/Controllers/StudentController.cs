@@ -73,8 +73,10 @@ namespace Exercises.Controllers
                 studentVM.Student.Major = MajorRepository.Get(studentVM.Student.Major.MajorId);
 
                 StudentRepository.Edit(studentVM.Student);
+                StudentRepository.SaveAddress(studentVM.Student.StudentId, studentVM.Student.Address);
+            ;
 
-                return RedirectToAction("List");
+            return RedirectToAction("List");
             
         }
 
