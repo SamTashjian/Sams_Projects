@@ -1,0 +1,38 @@
+﻿@model HRPortal.Models.Data.Job
+@{
+    ViewBag.Title = "AddJob";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Add Job</h3>
+        @Html.ActionLink("Return to Open Positions", "Jobs", "Admin")
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            //don't need the job id because it is automatically set in the add method, right?
+            @*<div class="form-group">
+                <label>Job ID</label>
+                @Html.TextBoxFor(j => j.JobId, new {@class = "form-control", placeholder = "Job ID"})
+            </div>*@
+            <div class="form-group">
+                <label>Job Title</label>
+                @Html.TextBoxFor(j => j.JobTitle, new {@class = "form-control", placeholder = "Job Title"})
+            </div>
+            <div class="form-group">
+                <label>Department</label>
+                @Html.TextBoxFor(j => j.Department, new {@class = "form-control", placeholder = "Department"})
+            </div>
+            <div class="form-group">
+                <label>Salary</label>
+                @Html.TextBoxFor(j => j.Salary, new { @class = "form-control", placeholder = "Salary" })
+            </div>
+            <button type="submit" class="btn btn-sm btn-primary">Add Job</button>
+        }
+    </div>
+</div>
+

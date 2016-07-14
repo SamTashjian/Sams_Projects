@@ -1,0 +1,20 @@
+﻿@model HRPortal.Models.Data.Application
+@{
+    ViewBag.Title = "SubmittedApp";
+}
+
+<div align="center">
+    <h3>Your Application has been submitted</h3>
+    <p></p>
+    <p>Your application ID#: <b>@Html.DisplayFor(a=>a.ApplicationId)</b></p>
+    <p>Your first name: <b>@Html.DisplayFor(a => a.FirstName)</b></p>
+    <p>Your last name: <b>@Html.DisplayFor(a => a.LastName)</b></p>
+    <p>Your phone number: <b>@Html.DisplayFor(a => a.PhoneNumber)</b></p>
+    <p>Your E-mail: <b>@Html.DisplayFor(a=>a.Email)</b></p>
+    <p>Your Education: <b>@Html.DisplayFor(a => a.Education)</b></p>
+    <p>Your Work History: <b>@Html.DisplayFor(a => a.WorkHistory)</b></p>
+    <p></p>
+    <p>@Html.ActionLink("Return to Open Positions", "Jobs", "Admin")</p>
+
+</div>
+

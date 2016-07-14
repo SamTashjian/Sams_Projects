@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 using HRPortal.Models.Data;
 
 namespace HRPortal.Models.Repositories
@@ -30,5 +31,17 @@ namespace HRPortal.Models.Repositories
         {
             return _jobs.FirstOrDefault(j => j.JobId == jobId);
         }
+
+        public static void Add(Job job)
+        {
+            Job newJob = new Job();
+            newJob.JobId = _jobs.Max(j => j.JobId) + 1;
+            newJob.JobTitle = job.JobTitle;
+            newJob.Department = job.Department;
+            newJob.Salary = job.Salary;
+
+            _jobs.Add(newJob);
+        }
+
     }
 }

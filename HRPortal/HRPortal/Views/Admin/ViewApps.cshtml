@@ -1,0 +1,48 @@
+﻿@model List<HRPortal.Models.Data.Application>
+@{
+    ViewBag.Title = "ViewApps";
+}
+<div align="center">
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>Submitted Applications</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table table-striped" style="width: auto;">
+                <thead>
+                <tr>
+                    <th>Application ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone Number</th>
+                    <th>E-mail</th>
+                    <th>Education</th>
+                    <th>Work History</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var applicants in Model)
+                {
+                    <tr>
+                        <td>@applicants.ApplicationId</td>
+                        <td>@applicants.FirstName</td>
+                        <td>@applicants.LastName</td>
+                        <td>@applicants.PhoneNumber</td>
+                        <td>@applicants.Email</td>
+                        <td>@applicants.Education</td>
+                        <td>@applicants.WorkHistory</td>
+                        <td>
+                            @Html.ActionLink("Process Application", "ProcessApp", "Admin", new {id = applicants.ApplicationId}, null) |
+                            @Html.ActionLink("Remove Application", "RemoveApp", "Admin", new {id = applicants.ApplicationId}, null)
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+            <p>@Html.ActionLink("Return to Open Positions", "Jobs", "Admin")</p>
+        </div>
+    </div>
+</div>

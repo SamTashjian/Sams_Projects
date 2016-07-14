@@ -1,0 +1,48 @@
+﻿@model HRPortal.Models.Data.Application
+@{
+    ViewBag.Title = "Apply";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Apply for Job</h3>
+        @Html.ActionLink("Return to Open Posititons", "Jobs", "Admin")
+    </div>
+</div>
+@*<div align="center">
+    <label>show job title of job being applied for</label>
+</div>*@
+<div class="row">
+    <div class="col-xs-12">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <label>First Name: </label>
+                @Html.TextBoxFor(a => a.FirstName, new {@class = "form-control", placeholder = "First Name"})
+            </div>
+            <div class="form-group">
+                <label>Last Name: </label>
+                @Html.TextBoxFor(a => a.LastName, new {@class = "form-control", placeholder = "Last Name"})
+            </div>
+            <div class="form-group">
+                <label>Phone Number: </label>
+                @Html.TextBoxFor(a => a.PhoneNumber, new {@class = "form-control", placeholder = "Phone #"})
+            </div>
+            <div class="form-group">
+                <label>E-mail: </label>
+                @Html.TextBoxFor(a => a.Email, new {@class = "form-control", placeholder = "E-mail Address"})
+            </div>
+            <div class="form-group">
+                <label>Education: </label>
+                @Html.TextBoxFor(a => a.Education, new {@class = "form-control", placeholder = "Education"})
+            </div>
+            <div class="form-group">
+                <label>Work History: </label>
+                @Html.TextBoxFor(a => a.WorkHistory, new { @class = "form-control", placeholder = "First Name" })
+            </div>
+            <button type="submit" class="btn btn-sm btn-primary">Apply</button>
+        }
+    </div>
+</div>
+

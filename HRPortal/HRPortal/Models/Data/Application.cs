@@ -10,7 +10,7 @@ namespace HRPortal.Models.Data
         public int ApplicationId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Education { get; set; }
         public string WorkHistory { get; set; }

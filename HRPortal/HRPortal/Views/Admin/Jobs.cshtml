@@ -28,8 +28,8 @@
                         <td>@job.Department</td>
                         <td>@job.Salary</td>
                         <td>
-                            @Html.ActionLink("Apply", "ApplyForJob", "Admin", new {id = job.JobId}, null)|
-                            @Html.ActionLink("View Apllications", "ViewApps", "Admin", new {id = job.JobId}, null)|
+                            @Html.ActionLink("Apply", "Apply", "Admin", new {id = job.JobId}, null)|
+                            @Html.ActionLink("View Applications", "ViewApps", "Admin", new {id = job.JobId}, null)|
                             @Html.ActionLink("Edit Job", "EditJob", "Admin", new {id = job.JobId}, null) |
                             @Html.ActionLink("Remove Job", "RemoveJob", "Admin", new {id = job.JobId}, null)
                         </td>
