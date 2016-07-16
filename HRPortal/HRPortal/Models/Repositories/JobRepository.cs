@@ -18,7 +18,8 @@ namespace HRPortal.Models.Repositories
                 new Job {JobId = 1, JobTitle = "Practice Squad Goalkeeper", Department = "Athletics", Salary = 25000m},
                 new Job {JobId = 2, JobTitle = "Assistant Trainer", Department = "Medical/Training", Salary = 60000m},
                 new Job {JobId = 3, JobTitle = "Director of Team Travel", Department = "Travel", Salary = 50000m},
-                new Job {JobId = 4, JobTitle = "Equiptment Manager", Department ="Athletics", Salary = 25000}
+                new Job {JobId = 4, JobTitle = "Equiptment Manager", Department ="Athletics", Salary = 25000m},
+                new Job {JobId = 5, JobTitle = "General Manager", Department = "Business/Managment", Salary = 1000000m}
             };
         }
 

@@ -129,6 +129,11 @@
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
+    <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -141,8 +146,12 @@
     </Compile>
     <Compile Include="Models\Data\Application.cs" />
     <Compile Include="Models\Data\Job.cs" />
+    <Compile Include="Models\Data\Policy.cs" />
     <Compile Include="Models\Repositories\ApplicationRepository.cs" />
     <Compile Include="Models\Repositories\JobRepository.cs" />
+    <Compile Include="Models\Repositories\PolicyRepository.cs" />
+    <Compile Include="Models\ViewModels\AddJobVM.cs" />
+    <Compile Include="Models\ViewModels\ViewPolicyVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +174,10 @@
     <Content Include="Views\Admin\ViewApps.cshtml" />
     <Content Include="Views\Admin\AddJob.cshtml" />
     <Content Include="Views\Admin\AddedJob.cshtml" />
+    <Content Include="Views\Admin\ViewPolicies.cshtml" />
+    <Content Include="Views\Admin\ManagePolicies.cshtml" />
+    <Content Include="Views\Admin\AddPolicy.cshtml" />
+    <Content Include="Views\Admin\AddedPolicy.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

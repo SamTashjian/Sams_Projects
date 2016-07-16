@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using HRPortal.Models.Data;
 using HRPortal.Models.Repositories;
+using HRPortal.Models.ViewModels;
 
 namespace HRPortal.Controllers
 {
@@ -17,44 +18,34 @@ namespace HRPortal.Controllers
             return View(model.ToList());
         }
 
+        [HttpGet]
         public ActionResult AddJob()
         {
-            return View(new Job());
+            var VM = new AddJobVM();
+            VM.SetDepartmentItems(JobRepository.GetAll());
+            return View((VM));
         }
 
+        //attribute model validation, aka annotation validation, 
+        //'Job' in Models.Data.Job contains the 'Required' and 'ErrorMessage' for each field of a complete Job object
+        //form is never submitted to server unless there is valid data input by user
         [HttpPost]
         public ActionResult AddJob(Job job)
         {
-            if (string.IsNullOrEmpty(job.JobTitle))
-            {
-                ModelState.AddModelError("JobTitle", "Please enter a job title");
-            }
-
-            if (string.IsNullOrEmpty(job.Department))
-            {
-                ModelState.AddModelError("Department", "Please enter a department for this job");
-            }
-
-            if (job.Salary <= 0) //ask how to check if the user input is an int
-            {
-                ModelState.AddModelError("Salary", "Please enter a number for this job's salary");
-            }
-
             if (ModelState.IsValid)
             {
                 JobRepository.Add(job);
                 return View("AddedJob", job);
             }
-
             return View();
         }
-
         [HttpGet]
         public ActionResult Apply()
         {
             return View(new Application());
         }
 
+        //explicit model validation, all validation is happening in the controller
         [HttpPost]
         public ActionResult Apply(Application application)
         {
@@ -100,6 +91,45 @@ namespace HRPortal.Controllers
             var model = ApplicationRepository.GetAll();
 
             return View(model.ToList());
+        }
+
+        [HttpGet]
+        public ActionResult ViewPolicies()
+        {
+          var VM = new ViewPolicyVM();
+          VM.SetCategoryItems(PolicyRepository.GetAll());
+            return View((VM));
+        }
+
+        [HttpGet]
+        public ActionResult ManagePolicies()
+        {
+            var VM = new ViewPolicyVM();
+            VM.SetCategoryItems(PolicyRepository.GetAll());
+            return View(VM);
+        }
+
+        [HttpGet]
+        public ActionResult AddPolicy()
+        {
+            var VM = new ViewPolicyVM();
+            VM.SetCategoryItems(PolicyRepository.GetAll());
+            return View(VM);
+        }
+
+        //attribute model validation, aka annotation validation, 
+        //'Job' in Models.Data.Policy contains the 'Required' and 'ErrorMessage' for each field of a complete Job object
+        //form is never submitted to server unless there is valid data input by user
+        [HttpPost]
+        public ActionResult AddPolicy(Policy  policy)
+        {
+            if (ModelState.IsValid)
+            {
+                PolicyRepository.Add(policy);
+                return View("AddedPolicy", policy);
+            }
+
+            return View();
         }
     }
 }

@@ -1,0 +1,16 @@
+﻿@model HRPortal.Models.Data.Policy
+@{
+    ViewBag.Title = "AddedPolicy";
+}
+
+<div align="center">
+    <h3>This Policy has been added to the @Html.DisplayFor(p=>p.Category) Policies</h3>
+   
+    <p>Policy Category: <b>@Html.DisplayFor(p => p.Category)</b></p>
+    <p>Policy Title: <b>@Html.DisplayFor(p => p.PolicyTitle)</b></p>
+    <p>Policy Content: <b>@Html.DisplayFor(p=>p.PolicyContent)</b></p>
+    <p></p>
+    <p>@Html.ActionLink("Return to Manage Policies", "ManagePolicies", "Admin")</p>
+
+</div>
+

@@ -27,11 +27,11 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Policies<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("View Policies", "ViewPol", "Admin")</li>
+                            <li>@Html.ActionLink("View Policies", "ViewPolicies", "Admin")</li>
                             
-                            <li>@Html.ActionLink("Manage Policies", "ManagePol", "Admin")</li>
+                            <li>@Html.ActionLink("Manage Policies", "ManagePolicies", "Admin")</li>
                            
-                            <li>@Html.ActionLink("Manage Categories", "ManageCat", "Admin")</li>
+                            @*<li>@Html.ActionLink("Manage Categories", "ManageCat", "Admin")</li>*@
                         </ul>
                     </li>
                 </ul>
@@ -49,5 +49,6 @@
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("scripts", false)
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿@model HRPortal.Models.Data.Job
+﻿@model HRPortal.Models.ViewModels.AddJobVM
 @{
     ViewBag.Title = "AddJob";
 }
@@ -13,26 +13,30 @@
     <div class="col-xs-12">
         @using (Html.BeginForm())
         {
-            @Html.ValidationSummary()
-            //don't need the job id because it is automatically set in the add method, right?
-            @*<div class="form-group">
-                <label>Job ID</label>
-                @Html.TextBoxFor(j => j.JobId, new {@class = "form-control", placeholder = "Job ID"})
-            </div>*@
+            
             <div class="form-group">
-                <label>Job Title</label>
-                @Html.TextBoxFor(j => j.JobTitle, new {@class = "form-control", placeholder = "Job Title"})
+                <label>Job Title: </label>
+                @Html.TextBoxFor(j => j.Job.JobTitle, new { @class = "form-control", placeholder = "Job Title" })
+                @Html.ValidationMessageFor(j=> j.Job.JobTitle)
             </div>
             <div class="form-group">
-                <label>Department</label>
-                @Html.TextBoxFor(j => j.Department, new {@class = "form-control", placeholder = "Department"})
+                <label>Department: </label>
+                @Html.DropDownListFor(j => j.Job.Department, Model.DepartmentItems, "Dept.",  new { @class = "form-control", placeholder = "Department" })
+                @Html.ValidationMessageFor(j => j.Job.Department)
             </div>
             <div class="form-group">
-                <label>Salary</label>
-                @Html.TextBoxFor(j => j.Salary, new { @class = "form-control", placeholder = "Salary" })
+                <label>Salary: </label>
+                @Html.TextBoxFor(j => j.Job.Salary, new { @class = "form-control", placeholder = "Salary" })
+                @Html.ValidationMessageFor(j => j.Job.Salary)
             </div>
             <button type="submit" class="btn btn-sm btn-primary">Add Job</button>
         }
     </div>
 </div>
 
+@* Render section used so we can stray from the shared layout *@
+@section scripts
+{
+    <script src="~/scripts/jquery.validate.min.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+}

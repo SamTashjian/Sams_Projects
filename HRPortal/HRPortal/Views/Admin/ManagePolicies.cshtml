@@ -1,0 +1,25 @@
+﻿@model HRPortal.Models.ViewModels.ViewPolicyVM
+@{
+    ViewBag.Title = "ManagePolicies";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Manage Policies</h3>
+        @Html.ActionLink("Add Policy", "AddPolicy", "Admin", null, new {@class = "btn btn-primary"})
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                <label>Choose a HR Category to Manage its Policies</label>
+                @Html.DropDownListFor(p => p.Policy.Category, Model.CategoryItems, "Select Category", new { id = "SelectedCategory" })
+                <button type="submit" class="btn btn-sm btn-primary">Search this Category</button>
+            </div>
+        }
+
+    </div>
+</div>
+

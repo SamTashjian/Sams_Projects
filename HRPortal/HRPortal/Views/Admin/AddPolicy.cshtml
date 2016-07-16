@@ -1,0 +1,44 @@
+﻿@model HRPortal.Models.ViewModels.ViewPolicyVM
+@{
+    ViewBag.Title = "AddPolicy";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Add Policy</h3>
+        @Html.ActionLink("Return to Manage Policies", "ManagePolicies", "Admin")
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                <label>Policy Category: </label>
+                @Html.DropDownListFor(p => p.Policy.Category, Model.CategoryItems, "Dept.", new {@class = "form-control", placeholder = "Category"})
+                @Html.ValidationMessageFor(p => p.Policy.Category)
+            </div>
+            <div class="form-group">
+                <label>Policy Title: </label>
+                @Html.TextBoxFor(p => p.Policy.PolicyTitle, new {@class = "form-control", placeholder = "Policy Title"})
+                @Html.ValidationMessageFor(p=>p.Policy.PolicyTitle)
+            </div>
+            <div class="form-group">
+            <label>Policy Content: </label>
+                @Html.TextBoxFor(p=>p.Policy.PolicyContent, new {@class = "form-control", placeholder ="Policy Content"})
+                @Html.ValidationMessageFor(p=>p.Policy.PolicyContent)
+            </div>
+
+            <button type="submit" class="btn btn-sm btn-primary">Add Policy</button>
+        }
+    </div>
+</div>
+
+@* Render section used so we can stray from the shared layout *@
+@section scripts
+{
+    <script src="~/scripts/jquery.validate.min.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+
+
