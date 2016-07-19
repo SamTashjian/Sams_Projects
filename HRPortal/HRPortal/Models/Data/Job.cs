@@ -14,7 +14,7 @@ namespace HRPortal.Models.Data
         public string JobTitle { get; set; }
         [Required(ErrorMessage = "Please enter a department for this job")]
         public string Department { get; set; }
-        [Range(1,int.MaxValue,ErrorMessage = "Please enter a number for this job's salary")]
+        [Range(1,int.MaxValue,ErrorMessage = "Please enter a number greater than 0 for this job's salary")]
         public decimal Salary { get; set; }
     }
 }
