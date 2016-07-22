@@ -12,6 +12,8 @@ namespace HRPortal.Models.ViewModels
         public Policy Policy;
         public List<SelectListItem> CategoryItems { get; set; }
 
+
+
         public ViewPolicyVM()
         {
             CategoryItems = new List<SelectListItem>();

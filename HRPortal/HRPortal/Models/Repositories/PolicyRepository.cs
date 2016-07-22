@@ -29,6 +29,11 @@ namespace HRPortal.Models.Repositories
             return _policies;
         }
 
+        public static Policy Get(string policyTitle)
+        {
+            return _policies.FirstOrDefault(p => p.PolicyTitle == policyTitle);
+        }
+
         public static void Add(Policy policy)
         {
             Policy newPolicy = new Policy();
@@ -38,6 +43,11 @@ namespace HRPortal.Models.Repositories
             newPolicy.PolicyContent = policy.PolicyContent;
 
             _policies.Add(newPolicy);
+        }
+
+        public static void Delete(string policyTitle)
+        {
+            _policies.RemoveAll(p => p.PolicyTitle == policyTitle);
         }
     }
 }

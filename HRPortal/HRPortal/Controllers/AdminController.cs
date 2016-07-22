@@ -131,5 +131,35 @@ namespace HRPortal.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public ActionResult ViewPoliciesByCat(string chosenCat)
+        {
+            var VM = new ViewPolicyVM();
+            VM.SetCategoryItems(PolicyRepository.GetAll());
+            return View("ViewPoliciesByCat", PolicyRepository.GetAll().Where(p=>p.Category.Equals(chosenCat, StringComparison.CurrentCultureIgnoreCase)));
+        }
+
+        [HttpGet]
+        public ActionResult ManagePoliciesByCat(string chosenCat)
+        {
+            var VM = new ViewPolicyVM();
+            VM.SetCategoryItems(PolicyRepository.GetAll());
+            return View("ManagePoliciesByCat", PolicyRepository.GetAll().Where(p=>p.Category.Equals(chosenCat, StringComparison.CurrentCultureIgnoreCase)));
+        }
+
+        [HttpGet]
+        public ActionResult DeletePolicy(string policyTitle)
+        {
+            var policy = PolicyRepository.Get(policyTitle);
+            return View(policy);
+        }
+
+        [HttpPost]
+        public ActionResult DeletePolicy(Policy policy)
+        {
+            PolicyRepository.Delete(policy.PolicyTitle);
+            return RedirectToAction("ManagePolicies");
+        }
     }
 }

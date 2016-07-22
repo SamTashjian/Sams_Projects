@@ -1,20 +1,22 @@
 ﻿$(document)
     .ready(function() {
-        $('#addContactModal')
+        $('#btnShowAddContact')
             .on('click',
                 function() {
                     $('#addContactModal').modal('show');
                 });
-        $('#btnSaveCotnact')
+        $('#btnSaveContact')
             .on('click',
-                function() {
+                function () {
+                    
                     var contact = {};
 
-                    contact.Name = $('#name').val;
-                    contact.PhoneNumber = $('#phonenumber');
+                    contact.Name = $('#name').val();
+                    contact.PhoneNumber = $('#phonenumber').val();
 
                     $.post(uri, contact)
-                        .done(function() {
+                        .done(function () {
+                            
                             loadContacts();
                             $('#addContactModal').modal('hide');
                         })

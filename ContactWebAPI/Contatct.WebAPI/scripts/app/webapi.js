@@ -23,5 +23,13 @@ function loadContacts() {
 };
 
 function createRow(contact) {
-    return '<tr><td>' + contact.ContactID + '<td><td>' + contact.Name + '<td><td>' + contact.PhoneNumber + '<td><tr>';
+    var row = $("<tr></tr>")
+        .append($("<td></td>").text(contact.ContactID))
+        .append($("<td></td>").text(contact.Name))
+        .append($("<td></td>").text(contact.PhoneNumber));
+    return row;
+    //return "<tr><td>" + contact.ContactID + "</td>" +
+    //    "<td>" + contact.Name + "</td>" +
+    //    "<td>" + contact.PhoneNumber + "</td>" +
+    //    "</tr>";
 }

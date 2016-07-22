@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Validation";
+}
+
+<h2>Validation</h2>
+
+<div class="row" ng-app="validationApp">
+    <form name="validationForm" ng-controller="ValidationController as validationCtrl" novalidate>
+        <fieldset class="form-group">
+            <label class="control-label text-danger" ng-show="validationForm.Body.$dirty && validationForm.Body.$invalid">
+                Your review must be at least 25 characters
+            </label>
+            <textarea class="form-control" name="Body" placeholder="write a short review" title="review" ng-model="validationCtrl.newReview.Body" ng-minlength="25"></textarea>
+        </fieldset>
+    </form>
+</div>
+
+@section scripts{
+    <script src="~/scripts/app/validation.js"></script>
+}
+
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/Content/app/validation.css"/>
+}
