@@ -4,14 +4,14 @@
     ViewBag.Title = "ManagePoliciesByCat";
 }
 
-<h2>Need to figure out how to get each specific category to print here, probably need to create a new vm</h2>
+@*<h2>Need to figure out how to get each specific category to print here, probably need to create a new vm</h2>*@
 
 
 <table class="table">
     <tr>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Category)
-        </th>*@
+        <th>
+            @*@Html.DisplayNameFor(model => model.Category)*@Category
+        </th>
         <th>
             @*@Html.DisplayNameFor(model => model.PolicyTitle)*@ Policy Title
         </th>
@@ -24,9 +24,9 @@
     @foreach (var item in Model)
     {
         <tr>
-            @*<td>
+            <td>
             @Html.DisplayFor(modelItem => item.Category)
-        </td>*@
+        </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PolicyTitle)
             </td>
@@ -35,7 +35,7 @@
             </td>
             <td>
 
-                @Html.ActionLink("Delete", "DeletePolicy", "Admin", new { id= item.PolicyTitle})
+                @Html.ActionLink("Delete", "DeletePolicy", "Admin", new { policyTitle = item.PolicyTitle}, null)
             </td>
         </tr>
     }

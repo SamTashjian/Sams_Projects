@@ -19,7 +19,7 @@ namespace HRPortal.Models.Repositories
                 new Policy {Category = "Harassment", PolicyTitle = "Sexual Harassment", PolicyContent = "Anyone who says anything sexual or touches anyone sexually in the workplace will be disciplined."},
                 new Policy {Category = "PEDs", PolicyTitle = "Loss of Pay", PolicyContent = "Any player who is suspended due to PED violations will not be paid for games missed."},
                 new Policy {Category = "Family and Illness Leave", PolicyTitle = "Leave Time Limit", PolicyContent = "an Employee's job may be filled permanently if his or her leave lasts longer than 9 months."},
-                new Policy {Category = "PEDs", PolicyTitle = "Violantion Count", PolicyContent = "Any player who receives 3 or more PED violations will be kicked off the team permanently."},
+                new Policy {Category = "PEDs", PolicyTitle = "Violation Count", PolicyContent = "Any player who receives 3 or more PED violations will be kicked off the team permanently."},
                 new Policy {Category = "Harassment", PolicyTitle = "Verbal Harassment", PolicyContent = "Anyone who uses racial, sexist, or any other type of offensive language in the workplace will be disciplined."}      
             }; 
         }
