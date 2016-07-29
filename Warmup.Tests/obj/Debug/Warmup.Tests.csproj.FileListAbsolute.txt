@@ -1,9 +1,0 @@
-C:\Users\Apprentice\Documents\_repos\sam-tashjian-individual-work\Warmup.Tests\bin\Debug\Warmup.Tests.dll
-C:\Users\Apprentice\Documents\_repos\sam-tashjian-individual-work\Warmup.Tests\bin\Debug\Warmup.Tests.pdb
-C:\Users\Apprentice\Documents\_repos\sam-tashjian-individual-work\Warmup.Tests\bin\Debug\nunit.framework.dll
-C:\Users\Apprentice\Documents\_repos\sam-tashjian-individual-work\Warmup.Tests\bin\Debug\Warmups.dll
-C:\Users\Apprentice\Documents\_repos\sam-tashjian-individual-work\Warmup.Tests\bin\Debug\Warmups.pdb
-C:\Users\Apprentice\Documents\_repos\sam-tashjian-individual-work\Warmup.Tests\bin\Debug\nunit.framework.xml
-C:\Users\Apprentice\Documents\_repos\sam-tashjian-individual-work\Warmup.Tests\obj\Debug\Warmup.Tests.csprojResolveAssemblyReference.cache
-C:\Users\Apprentice\Documents\_repos\sam-tashjian-individual-work\Warmup.Tests\obj\Debug\Warmup.Tests.dll
-C:\Users\Apprentice\Documents\_repos\sam-tashjian-individual-work\Warmup.Tests\obj\Debug\Warmup.Tests.pdb
