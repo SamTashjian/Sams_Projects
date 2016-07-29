@@ -1,0 +1,21 @@
+html{
+    background-color: beige;
+}
+
+body{
+    color: navy
+}
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+    background-color: coral;
+}
+tbody tr:nth-child(even){
+    background-color: cadetblue;
+}
+.img-circle{
+    border-radius: 50%
+}

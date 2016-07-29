@@ -1,0 +1,53 @@
+@font-face{
+                font-family: "Oily";
+                font-style: normal;
+                font-weight: 400;
+                src: url("Oily.otf");
+            }
+            h1{
+                font-family: "Oily";
+                    font-size: 40px;
+                    color:black;
+            }
+#header{
+    text-align: center;
+    background-color: white;
+}
+
+#footer{
+    text-align: center;
+    background-color: white;
+
+    
+}
+body{
+    background-color: white;
+}
+
+a{
+    text-decoration: underline;
+    font-weight: 300;
+    color: black;
+}
+a:visited{
+    color: chocolate;
+}
+a:hover{
+    font-weight: bold;
+}
+a:active{
+    text-decoration: none;
+}
+#jumbo{
+    font-style: normal;
+    
+
+}
+table{
+    text-align: center;
+    border: 0;
+
+}
+th{
+    text-align: center
+}

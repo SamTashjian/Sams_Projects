@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Web Page</title>
+        <script>
+            var userChoice = prompt("Do you choose rock, paper or scissors?");
+var computerChoice = Math.random();
+if (computerChoice < 0.34) {
+computerChoice = "rock";
+} else if(computerChoice <= 0.67) {
+computerChoice = "paper";
+} else {
+computerChoice = "scissors";
+} 
+console.log("Computer: " + computerChoice);
+
+var compare = function(choice1, choice2) {
+if (choice1 === choice2) {
+return "The result is a tie!";
+} else if (choice1 === "rock") {
+if (choice2 === "scissors") {
+return "rock wins";
+} else {
+return "paper wins";
+}
+} else if (choice1 === "paper") {
+if (choice2 === "rock") {
+return "paper wins";
+} else {
+return "scissors wins";
+}
+} else {
+if (choice2 === "rock") {
+return "rock wins";
+} else {
+return "scissors wins";
+}
+}
+}
+
+console.log(compare(userChoice, computerChoice))
+        </script>
+    </head>
+    <body>
+        <h1>HEADING 1</h1>
+        <p>Paragraph 1</p>
+        <h2>HEADING 2</h2>
+        <p>Paragraph 2</p>
+        <h3>HEADING 3</h3>
+        <p>Paragraph 3</p>
+        <h4>HEADING 4</h4>
+        <p>Paragraph 4</p>
+        <h5>HEADING 5</h5>
+        <p>Paragraph 5</p>
+        <h6>HEADING 6</h6>
+        <p>Paragraph 6</p>
+    </body>
+</html>

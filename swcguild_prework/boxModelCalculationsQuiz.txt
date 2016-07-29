@@ -1,0 +1,7 @@
+total height: 150+(20*2)+(1*2)+(10*2)=  212px
+
+total width: 400+(20*2)+(1*2)+(10*2)=   462px
+
+browser calculated height: 150+(1*2)+(10*2)=   172px
+
+browser calculated width: 400+(1*2)+(10*2)=   422px
