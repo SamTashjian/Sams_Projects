@@ -163,7 +163,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Data\HittingStats.cs" />
     <Compile Include="Models\Data\League.cs" />
+    <Compile Include="Models\Data\PitchingStats.cs" />
     <Compile Include="Models\Data\Players.cs" />
     <Compile Include="Models\Data\Positions.cs" />
     <Compile Include="Models\Data\Team.cs" />
