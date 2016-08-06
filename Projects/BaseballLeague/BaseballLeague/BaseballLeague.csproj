@@ -166,9 +166,12 @@
     <Compile Include="Models\Data\HittingStats.cs" />
     <Compile Include="Models\Data\League.cs" />
     <Compile Include="Models\Data\PitchingStats.cs" />
-    <Compile Include="Models\Data\Players.cs" />
+    <Compile Include="Models\Data\Player.cs" />
     <Compile Include="Models\Data\Positions.cs" />
     <Compile Include="Models\Data\Team.cs" />
+    <Compile Include="Models\Repositories\PlayerRepository.cs" />
+    <Compile Include="Models\Repositories\TeamRepository.cs" />
+    <Compile Include="Models\ViewModels\AddTeamVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -208,14 +211,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Admin\Teams.cshtml" />
+    <Content Include="Views\Admin\Players.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Repositories\" />
-    <Folder Include="Models\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

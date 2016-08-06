@@ -1,0 +1,42 @@
+﻿@model List<BaseballLeague.Models.Data.Team>
+@{
+    ViewBag.Title = "Teams";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Teams</h3>
+        @*@Html.ActionLink("Add Team", "AddTeam", "Admin", null, new { @class = "btn btn-primary" })*@
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-striped" style="width: auto;">
+            <thead>
+                <tr>
+                    <th>League Name</th>
+                    <th>Team City</th>
+                    <th>Team Name</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var team in Model)
+                {
+                    <tr>
+                        <td>@team.LeagueId</td>
+                        <td>@team.TeamCity</td>
+                        <td>@team.TeamName</td>
+                        <td>@team.Wins</td>
+                        <td>@team.Losses</td>
+                        <td>
+                            @Html.ActionLink("View Roster", "Players", "Admin", new { id = team.TeamId }, null)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

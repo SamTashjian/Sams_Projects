@@ -1,0 +1,38 @@
+﻿@model List<BaseballLeague.Models.Data.Player>
+@{
+    ViewBag.Title = "Players";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Roster</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-striped" style="width: auto;">
+            <thead>
+                <tr>
+                    <th>Player First Name</th>
+                    <th>Player Last Name</th>
+                    <th>Position</th>
+                    <th>Jersey Number</th>
+                    <th>Years Player</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var player in Model)
+                {
+                    <tr>
+                        <td>@player.PlayerFirstName</td>
+                        <td>@player.PlayerLastName</td>
+                        <td>@player.PositionId</td>
+                        <td>@player.JerseyNumber</td>
+                        <td>@player.YearsPlayed</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace BaseballLeague.Models.Data
 {
-    public class Players
+    public class Player
     {
         public int PlayerId { get; set; }
         public int TeamId { get; set; }
