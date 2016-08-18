@@ -13,6 +13,8 @@ namespace BaseballLeague.Controllers
 {
     public class AdminController : Controller
     {
+   
+
         [HttpGet]
         public ActionResult Teams()
         {
@@ -21,9 +23,9 @@ namespace BaseballLeague.Controllers
         }
 
         [HttpGet]
-        public ActionResult Players()
+        public ActionResult Players(int id)
         {
-            var model = PlayerRepository.GetPlayersForTeam();
+            var model = PlayerRepository.GetPlayersForTeam(id);
             return View(model.ToList());
         }
     }

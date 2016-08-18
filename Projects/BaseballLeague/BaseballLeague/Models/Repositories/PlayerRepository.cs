@@ -6,6 +6,12 @@ using BaseballLeague.Models.Data;
 
 namespace BaseballLeague.Models.Repositories
 {
+    public interface IPlayerRepository
+    {
+        IEnumerable<Player> GetAll();
+        Player GetPlayerById(int id);
+    }
+
     public static class PlayerRepository
     {
         private static List<Player> _players;
